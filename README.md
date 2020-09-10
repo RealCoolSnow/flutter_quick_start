@@ -3,7 +3,7 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-10 14:01:06
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-10 17:33:33
+ * @LastEditTime: 2020-09-10 18:49:43
 -->
 <p align="center">
     <a href="README_CN.md">中文介绍</a>
@@ -24,7 +24,7 @@ This is an app that contains many librarys, including network, routing, storage,
 
 <a href="lib/storage">lib/storage</a> - shared preferences、database、local storage...
 
-<a href="lib/ui">lib/ui</a> - pages、widgets...
+<a href="lib/ui">lib/ui</a> - pages、widgets、webview...
 
 <a href="lib/util">lib/util</a> - some common tools (log、device info...)
 

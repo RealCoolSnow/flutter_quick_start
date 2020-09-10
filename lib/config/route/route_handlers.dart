@@ -3,14 +3,14 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-09 10:44:05
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-10 18:18:47
+ * @LastEditTime: 2020-09-10 18:50:07
  */
 
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easy/ui/page/about.dart';
 import 'package:flutter_easy/ui/page/home.dart';
-import 'package:flutter_easy/ui/page/webview/webview.dart';
+import 'package:flutter_easy/ui/webview/webview.dart';
 
 /// home
 var homeHandler = Handler(
