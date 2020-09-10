@@ -59,9 +59,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - locale/i18n_en.json
-    - locale/i18n_zh.json
-
+    - locale/
+    - assets/images/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
