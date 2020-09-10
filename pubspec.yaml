@@ -41,7 +41,9 @@ dependencies:
   dio: ^3.0.10
   # device_info  - https://pub.flutter-io.cn/packages/device_info
   device_info: ^0.4.2+7
-
+  # webview_flutter - https://pub.flutter-io.cn/packages/webview_flutter
+  webview_flutter: ^0.3.22+1
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

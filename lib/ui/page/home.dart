@@ -3,7 +3,7 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-08 18:56:21
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-10 16:56:30
+ * @LastEditTime: 2020-09-10 18:25:31
  */
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
@@ -110,24 +110,34 @@ class _HomePageState extends State<HomePage> {
 }
 
 class HomeTab extends StatelessWidget {
+  var _context;
   @override
   Widget build(BuildContext context) {
+    _context = context;
     return Container(
         child: Column(
       children: [
-        RaisedButton(onPressed: showNow, child: Text('Toast')),
-        RaisedButton(onPressed: httpTest, child: Text('Http Test'))
+        RaisedButton(onPressed: _showNow, child: Text('Toast')),
+        RaisedButton(onPressed: _showWebView, child: Text('WebView')),
+        RaisedButton(onPressed: _httpTest, child: Text('Http Test'))
       ],
     ));
   }
 
-  void showNow() {
+  void _showNow() {
     String now = TimeUtil.format(DateTime.now());
     logUtil.d(now);
     ToastUtil.show(now);
   }
 
-  void httpTest() {
+  void _showWebView() {
+    final url = Uri.encodeComponent('https://www.baidu.com');
+    const title = 'this is title';
+    Config.router
+        .navigateTo(_context, Routes.webview + "?url=$url&title=$title");
+  }
+
+  void _httpTest() {
     HttpUtil()
         .get('/', getParams: {"user": "coolsnow"})
         .then((value) => ToastUtil.show(value.toString()))
