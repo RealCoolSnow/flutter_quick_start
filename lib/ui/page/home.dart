@@ -3,7 +3,7 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-08 18:56:21
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-10 16:22:16
+ * @LastEditTime: 2020-09-10 16:56:30
  */
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +11,7 @@ import 'package:flutter_easy/config/config.dart';
 import 'package:flutter_easy/config/route/routes.dart';
 import 'package:flutter_easy/locale/i18n.dart';
 import 'package:flutter_easy/service/http/http_util.dart';
+import 'package:flutter_easy/ui/widget/shimmer.dart';
 import 'package:flutter_easy/ui/widget/smart_drawer.dart';
 import 'package:flutter_easy/util/log_util.dart';
 import 'package:flutter_easy/util/time_util.dart';
@@ -97,7 +98,12 @@ class _HomePageState extends State<HomePage> {
     Scaffold.of(context).openDrawer();
   }
 
+  void _closeDrawer() {
+    Navigator.of(context).pop();
+  }
+
   void _showAbout() {
+    _closeDrawer();
     Config.router
         .navigateTo(context, Routes.about, transition: TransitionType.fadeIn);
   }
@@ -141,9 +147,92 @@ class Tab2 extends StatelessWidget {
   }
 }
 
-class Tab3 extends StatelessWidget {
+class Tab3 extends StatefulWidget {
+  @override
+  _Tab3State createState() => _Tab3State();
+}
+
+class _Tab3State extends State<Tab3> {
+  bool _enabled = true;
   @override
   Widget build(BuildContext context) {
-    return Container(child: Center(child: Text("tab3")));
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: <Widget>[
+          Expanded(
+            child: Shimmer.fromColors(
+              baseColor: Colors.grey[300],
+              highlightColor: Colors.grey[100],
+              enabled: _enabled,
+              child: ListView.builder(
+                itemBuilder: (_, __) => Padding(
+                  padding: const EdgeInsets.only(bottom: 8.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: 48.0,
+                        height: 48.0,
+                        color: Colors.white,
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 8.0),
+                      ),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Container(
+                              width: double.infinity,
+                              height: 8.0,
+                              color: Colors.white,
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 2.0),
+                            ),
+                            Container(
+                              width: double.infinity,
+                              height: 8.0,
+                              color: Colors.white,
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 2.0),
+                            ),
+                            Container(
+                              width: 40.0,
+                              height: 8.0,
+                              color: Colors.white,
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                itemCount: 2,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: FlatButton(
+                onPressed: () {
+                  setState(() {
+                    _enabled = !_enabled;
+                  });
+                },
+                child: Text(
+                  _enabled ? 'Stop' : 'Play',
+                  style: Theme.of(context).textTheme.button.copyWith(
+                      fontSize: 18.0,
+                      color: _enabled ? Colors.red : Colors.blue),
+                )),
+          )
+        ],
+      ),
+    );
   }
 }
