@@ -3,14 +3,14 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-10 15:02:22
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-10 18:50:18
+ * @LastEditTime: 2020-09-11 15:23:07
 -->
 <p align="center">
     <a href="README.md">English</a>
 </p>
 
 # flutter_easy
-本项目旨在帮助你快速构建Flutter应用，它包含了网络请求、路由、存储、本地化、日志等等常用的基本功能。
+本项目旨在帮助你快速构建Flutter应用，它包含了网络请求、路由、存储、本地化、WebView, 日志等常用的基本功能。
 
 # 代码目录
 
@@ -30,4 +30,8 @@
 
 # 如何使用
 
-额，基于此代码开发应用就好了. ●＾●
+1. 全局替换 'com.coolsnow.flutter_easy' 为 '你的包名'
+
+2. 全局替换 'flutter_easy' 为 '你的工程名'
+
+3. 基于此代码开发应用就好了. ●＾●
