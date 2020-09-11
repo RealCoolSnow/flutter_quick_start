@@ -3,12 +3,13 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-10 18:00:00
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-11 16:49:11
+ * @LastEditTime: 2020-09-11 16:57:10
  */
 import 'dart:async';
 import 'dart:convert';
 import 'dart:core';
 
+import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easy/locale/i18n.dart';
@@ -45,9 +46,21 @@ class _WebViewPageState extends State<WebViewPage> {
   @override
   void initState() {
     super.initState();
+    BackButtonInterceptor.add(_backInterceptor);
     url = Uri.decodeComponent(widget.url);
     title = widget.title;
     isLocal = url.startsWith("asset");
+  }
+
+  @override
+  void dispose() {
+    BackButtonInterceptor.remove(_backInterceptor);
+    super.dispose();
+  }
+
+  bool _backInterceptor(bool stopDefaultButtonEvent, RouteInfo info) {
+    _onBack();
+    return true;
   }
 
   _loadHtmlFromAssets() async {
