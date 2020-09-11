@@ -3,7 +3,7 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-10 15:02:22
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-11 15:23:07
+ * @LastEditTime: 2020-09-11 15:50:02
 -->
 <p align="center">
     <a href="README.md">English</a>
@@ -26,7 +26,7 @@
 
 <a href="lib/ui">lib/ui</a> - pages、widgets、webview等
 
-<a href="lib/util">lib/util</a> - 一些常用的功能 (log、device info等)
+<a href="lib/util">lib/util</a> - 一些常用的功能 (log、device info、clipboard、permissions等)
 
 # 如何使用
 
