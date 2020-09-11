@@ -43,7 +43,9 @@ dependencies:
   device_info: ^0.4.2+7
   # webview_flutter - https://pub.flutter-io.cn/packages/webview_flutter
   webview_flutter: ^0.3.22+1
-  
+  # clipboard - https://pub.flutter-io.cn/packages/clipboard
+  clipboard: ^0.1.2+8
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -63,6 +65,7 @@ flutter:
   assets:
     - locale/
     - assets/images/
+    - assets/test.html
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

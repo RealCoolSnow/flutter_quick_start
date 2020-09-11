@@ -3,7 +3,7 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-08 18:56:21
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-10 18:25:31
+ * @LastEditTime: 2020-09-11 12:32:15
  */
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
@@ -131,8 +131,9 @@ class HomeTab extends StatelessWidget {
   }
 
   void _showWebView() {
-    final url = Uri.encodeComponent('https://www.baidu.com');
-    const title = 'this is title';
+    final url = Uri.encodeComponent(
+        'https://www.baidu.com'); //Uri.encodeComponent('assets/test.html');
+    const title = '';
     Config.router
         .navigateTo(_context, Routes.webview + "?url=$url&title=$title");
   }

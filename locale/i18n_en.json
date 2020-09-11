@@ -1,5 +1,8 @@
 {
     "app_name": "Flutter Easy",
     "about": "About",
-    "ok": "OK"
+    "ok": "OK",
+    "refresh": "Refresh",
+    "copy_link": "Copy Link",
+    "copied": "Copied"
 }

@@ -1,5 +1,8 @@
 {
     "app_name": "Flutter Easy",
     "about": "关于",
-    "ok": "OK"
+    "ok": "OK",
+    "refresh": "刷新",
+    "copy_link": "复制链接",
+    "copied": "已复制"
 }
