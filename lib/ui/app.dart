@@ -3,7 +3,7 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-09 10:38:59
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-10 14:50:00
+ * @LastEditTime: 2020-09-11 14:49:15
  */
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +39,7 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     final app = MaterialApp(
-      title: 'Flutter Easy',
+      title: Config.app,
       debugShowCheckedModeBanner: false,
       theme: new ThemeData(
         primarySwatch: Colors.blue,
