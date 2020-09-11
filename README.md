@@ -3,14 +3,14 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-10 14:01:06
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-11 15:49:43
+ * @LastEditTime: 2020-09-11 16:08:49
 -->
 <p align="center">
     <a href="README_CN.md">中文介绍</a>
 </p>
 
 # flutter_easy
-This is an app that contains many librarys, including network, routing, storage, localization, webview, logging, etc. It can help you develop flutter app quickly。
+This is an app that contains many librarys, including network, routing, storage, localization, webview, logging, etc. It can help you develop flutter app quickly.
 
 # description
 

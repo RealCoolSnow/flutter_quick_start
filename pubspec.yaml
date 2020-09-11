@@ -45,7 +45,9 @@ dependencies:
   webview_flutter: ^0.3.22+1
   # clipboard - https://pub.flutter-io.cn/packages/clipboard
   clipboard: ^0.1.2+8
-
+  # permission_handler - https://pub.flutter-io.cn/packages/permission_handler
+  permission_handler: ^5.0.1+1
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
