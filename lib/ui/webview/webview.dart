@@ -3,7 +3,7 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-10 18:00:00
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-11 14:45:06
+ * @LastEditTime: 2020-09-11 16:49:11
  */
 import 'dart:async';
 import 'dart:convert';
@@ -30,11 +30,11 @@ class WebViewPage extends StatefulWidget {
 }
 
 class _WebViewPageState extends State<WebViewPage> {
-  String _url;
-  String _title = "";
+  String url;
+  String title = "";
 
   /// load html from local Assets
-  bool _local = false;
+  bool isLocal = false;
   bool isLoading = true;
   bool canGoback = false;
 
@@ -45,14 +45,14 @@ class _WebViewPageState extends State<WebViewPage> {
   @override
   void initState() {
     super.initState();
-    _url = Uri.decodeComponent(widget.url);
-    _title = widget.title;
-    _local = _url.startsWith("asset");
+    url = Uri.decodeComponent(widget.url);
+    title = widget.title;
+    isLocal = url.startsWith("asset");
   }
 
   _loadHtmlFromAssets() async {
     WebViewController controller = await _controller.future;
-    String fileHtmlContents = await rootBundle.loadString(_url);
+    String fileHtmlContents = await rootBundle.loadString(url);
     controller.loadUrl(Uri.dataFromString(fileHtmlContents,
             mimeType: 'text/html', encoding: Encoding.getByName('utf-8'))
         .toString());
@@ -69,17 +69,15 @@ class _WebViewPageState extends State<WebViewPage> {
       isLoading = false;
     });
     WebViewController controller = await _controller.future;
-    controller.canGoBack().then((value) => {
-          setState(() {
-            canGoback = value;
-          })
-        });
-    if (_title.isEmpty) {
-      controller.getTitle().then((value) => {
-            setState(() {
-              _title = value;
-            })
-          });
+    var _canGoback = await controller.canGoBack();
+    setState(() {
+      canGoback = _canGoback;
+    });
+    if (title.isEmpty) {
+      var _title = await controller.getTitle();
+      setState(() {
+        title = _title;
+      });
     }
   }
 
@@ -116,15 +114,15 @@ class _WebViewPageState extends State<WebViewPage> {
             icon: new Icon(Icons.arrow_back),
             onPressed: _onBack,
           ),
-          title: Text(_title),
+          title: Text(title),
           actions: [_progressIndicator(), WebViewMenu(_controller.future)],
         ),
         body: WebView(
-          initialUrl: _local ? "" : _url,
+          initialUrl: isLocal ? "" : url,
           javascriptMode: JavascriptMode.unrestricted,
           onWebViewCreated: (WebViewController webViewController) {
             _controller.complete(webViewController);
-            if (_local) {
+            if (isLocal) {
               _loadHtmlFromAssets();
             }
           },
@@ -197,7 +195,7 @@ class WebViewMenu extends StatelessWidget {
 
   void _onCopyLink(WebViewController controller, BuildContext context) async {
     String url = await controller.currentUrl();
-    ClipboardUtil.copy(url)
-        .then((value) => ToastUtil.show(I18n.of(context).text('copied')));
+    await ClipboardUtil.copy(url);
+    ToastUtil.show(I18n.of(context).text('copied'));
   }
 }
