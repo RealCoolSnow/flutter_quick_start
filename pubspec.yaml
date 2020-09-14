@@ -49,6 +49,8 @@ dependencies:
   permission_handler: ^5.0.1+1
   # back_button_interceptor - https://pub.flutter-io.cn/packages/back_button_interceptor
   back_button_interceptor: ^4.3.0
+  # flutter_easyloading - https://github.com/huangjianke/flutter_easyloading
+  flutter_easyloading: ^1.1.4
   
 dev_dependencies:
   flutter_test:

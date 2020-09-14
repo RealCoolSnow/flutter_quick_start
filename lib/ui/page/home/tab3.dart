@@ -3,7 +3,7 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-11 16:03:06
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-11 16:03:36
+ * @LastEditTime: 2020-09-14 11:10:06
  */
 import 'package:flutter/material.dart';
 import 'package:flutter_easy/ui/widget/shimmer.dart';
@@ -86,7 +86,7 @@ class _Tab3State extends State<Tab3> {
                   });
                 },
                 child: Text(
-                  _enabled ? 'Stop' : 'Play',
+                  _enabled ? 'Stop Shimmer' : 'Start Shimmer',
                   style: Theme.of(context).textTheme.button.copyWith(
                       fontSize: 18.0,
                       color: _enabled ? Colors.red : Colors.blue),

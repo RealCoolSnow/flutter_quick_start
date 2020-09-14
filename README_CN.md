@@ -3,7 +3,7 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-10 15:02:22
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-11 15:50:02
+ * @LastEditTime: 2020-09-14 11:26:34
 -->
 <p align="center">
     <a href="README.md">English</a>
@@ -11,6 +11,13 @@
 
 # flutter_easy
 本项目旨在帮助你快速构建Flutter应用，它包含了网络请求、路由、存储、本地化、WebView, 日志等常用的基本功能。
+
+# 截屏
+<p align="center">
+  <img src="screenshot/1.png" width="30%" /> 
+  <img src="screenshot/2.png" width="30%" /> 
+  <img src="screenshot/3.png" width="30%" /> 
+</p>
 
 # 代码目录
 

@@ -4,5 +4,6 @@
     "ok": "OK",
     "refresh": "Refresh",
     "copy_link": "Copy Link",
-    "copied": "Copied"
+    "copied": "Copied",
+    "loading": "loading..."
 }

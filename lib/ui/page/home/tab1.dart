@@ -3,44 +3,76 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-11 16:01:48
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-11 16:38:43
+ * @LastEditTime: 2020-09-14 11:10:51
  */
 import 'package:flutter/material.dart';
 import 'package:flutter_easy/config/config.dart';
+import 'package:flutter_easy/config/pref_key.dart';
 import 'package:flutter_easy/config/route/routes.dart';
 import 'package:flutter_easy/service/http/http_util.dart';
+import 'package:flutter_easy/storage/Pref.dart';
+import 'package:flutter_easy/util/device_util.dart';
+import 'package:flutter_easy/util/loading_util.dart';
 import 'package:flutter_easy/util/log_util.dart';
 import 'package:flutter_easy/util/permission_util.dart';
 import 'package:flutter_easy/util/time_util.dart';
 import 'package:flutter_easy/util/toast_util.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-class Tab1 extends StatelessWidget {
+class Tab1 extends StatefulWidget {
+  _Tab1State createState() => _Tab1State();
+}
+
+class _Tab1State extends State<Tab1> {
   var _context;
   @override
   Widget build(BuildContext context) {
     _context = context;
-    return Container(
-        child: Column(
+    return FlutterEasyLoading(
+        child: Container(
+            child: Column(
       children: [
-        RaisedButton(onPressed: _showNow, child: Text('Toast')),
+        RaisedButton(onPressed: _showToast, child: Text('Toast')),
+        RaisedButton(onPressed: _showLoading, child: Text('Loading')),
+        RaisedButton(
+            onPressed: _showPreferences, child: Text('Shared Preferences')),
+        RaisedButton(onPressed: _showDeviceInfo, child: Text('Device Info')),
         RaisedButton(onPressed: _showWebView, child: Text('WebView')),
         RaisedButton(
             onPressed: _permissionRequest, child: Text("Permission Request")),
         RaisedButton(onPressed: _httpTest, child: Text('Http Test'))
       ],
-    ));
+    )));
   }
 
-  _showNow() {
+  _showToast() {
     String now = TimeUtil.format(DateTime.now());
     logUtil.d(now);
     ToastUtil.show(now);
   }
 
+  _showLoading() {
+    LoadingUtil.show(context);
+    Future.delayed(Duration(seconds: 2), () {
+      LoadingUtil.dismiss();
+    });
+  }
+
+  _showPreferences() {
+    Pref.getString(PrefKey.launchTime).then((value) {
+      String str = 'launch time: $value';
+      ToastUtil.show(str);
+    });
+  }
+
+  _showDeviceInfo() {
+    DeviceUtil.getDeviceInfo().then((value) => ToastUtil.show(value));
+  }
+
   _showWebView() {
     final url = Uri.encodeComponent(
-        'https://www.baidu.com'); //Uri.encodeComponent('assets/test.html');
+        'https://github.com/RealCoolSnow/flutter_easy'); //Uri.encodeComponent('assets/test.html');
     const title = '';
     Config.router
         .navigateTo(_context, Routes.webview + "?url=$url&title=$title");
@@ -56,9 +88,13 @@ class Tab1 extends StatelessWidget {
   }
 
   _httpTest() {
-    HttpUtil()
-        .get('/', getParams: {"user": "coolsnow"})
-        .then((value) => ToastUtil.show(value.toString()))
-        .catchError((error) => {ToastUtil.show(error.msg)});
+    LoadingUtil.show(context);
+    HttpUtil().get('/', getParams: {"user": "coolsnow"}).then((value) {
+      LoadingUtil.dismiss();
+      ToastUtil.show(value.toString());
+    }).catchError((error) {
+      LoadingUtil.dismiss();
+      ToastUtil.show(error.msg);
+    });
   }
 }

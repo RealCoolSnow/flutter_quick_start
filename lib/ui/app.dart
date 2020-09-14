@@ -3,7 +3,7 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-09 10:38:59
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-11 14:49:15
+ * @LastEditTime: 2020-09-14 11:01:46
  */
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
@@ -29,12 +29,9 @@ class _AppState extends State<App> {
     Config.router = router;
     //---shared preferences
     Pref.setString(PrefKey.launchTime, TimeUtil.format(DateTime.now()));
-    Pref.getString(PrefKey.launchTime)
-        .then((value) => print('launch time: $value'));
     //---logutil
     logUtil.setEnabled(Config.debug);
-    logUtil.d("log - d");
-    logUtil.d2("log no stack - d");
+    logUtil.d("App created");
   }
   @override
   Widget build(BuildContext context) {
