@@ -3,7 +3,7 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-10 14:01:06
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-14 11:26:14
+ * @LastEditTime: 2020-09-14 11:41:25
 -->
 <p align="center">
     <a href="README_CN.md">中文介绍</a>
@@ -42,3 +42,11 @@ This is an app that contains many librarys, including network, routing, storage,
 2. Replace string 'flutter_easy' to [YOUR PROJECT NAME] in all files.
 
 3. Develop your application base on this project. ●＾●
+
+# Author
+
+CoolSnow
+
+Email: coolsnow2020@gmail.com
+
+Twitter: https://twitter.com/CoolSnow0927

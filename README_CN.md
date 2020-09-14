@@ -3,7 +3,7 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-10 15:02:22
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-14 11:26:34
+ * @LastEditTime: 2020-09-14 11:42:04
 -->
 <p align="center">
     <a href="README.md">English</a>
@@ -42,3 +42,11 @@
 2. 全局替换 'flutter_easy' 为 '你的工程名'
 
 3. 基于此代码开发应用就好了. ●＾●
+
+# 作者
+
+CoolSnow
+
+Email: coolsnow2020@gmail.com
+
+Twitter: https://twitter.com/CoolSnow0927
