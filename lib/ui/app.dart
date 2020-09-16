@@ -3,10 +3,14 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-09 10:38:59
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-14 11:01:46
+ * @LastEditTime: 2020-09-16 16:26:10
  */
+import 'dart:ui';
+
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easy/ui/page/home.dart';
+import 'package:flutter_easy/ui/page/splash_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_easy/config/config.dart';
 import 'package:flutter_easy/config/pref_key.dart';
@@ -49,7 +53,22 @@ class _AppState extends State<App> {
       ],
       supportedLocales: localeUtil.supportedLocales(),
       onGenerateRoute: Config.router.generator,
+      home: _buildSplashScreen(),
     );
     return app;
+  }
+
+  _buildSplashScreen() {
+    return SplashScreen(
+        seconds: 3,
+        navigateAfterSeconds: HomePage(),
+        title: Text('flutter_easy',
+            style: TextStyle(
+                fontWeight: FontWeight.w700, fontSize: 20, color: Colors.pink)),
+        imageBackground: AssetImage('assets/images/splash.jpg'),
+        icon: AssetImage('assets/images/avatar.jpg'),
+        backgroundColor: Colors.white,
+        photoSize: 60.0,
+        loaderColor: Colors.white);
   }
 }
