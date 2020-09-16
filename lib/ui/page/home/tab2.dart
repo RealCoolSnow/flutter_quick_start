@@ -3,7 +3,7 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-11 16:02:44
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-16 17:43:29
+ * @LastEditTime: 2020-09-16 17:46:35
  */
 import 'package:flutter/material.dart';
 
@@ -63,11 +63,11 @@ class Transition extends StatelessWidget {
   final Animation<double> animation;
   @override
   Widget build(BuildContext context) {
-    return new Center(
-      child: new AnimatedBuilder(
+    return Center(
+      child: AnimatedBuilder(
           animation: animation,
           builder: (BuildContext context, Widget child) {
-            return new Container(
+            return Container(
                 height: animation.value, width: animation.value, child: child);
           },
           child: child),
