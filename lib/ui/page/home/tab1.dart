@@ -3,14 +3,16 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-11 16:01:48
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-14 11:10:51
+ * @LastEditTime: 2020-09-16 18:38:01
  */
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easy/config/config.dart';
 import 'package:flutter_easy/config/pref_key.dart';
 import 'package:flutter_easy/config/route/routes.dart';
 import 'package:flutter_easy/service/http/http_util.dart';
 import 'package:flutter_easy/storage/Pref.dart';
+import 'package:flutter_easy/ui/page/about.dart';
 import 'package:flutter_easy/util/device_util.dart';
 import 'package:flutter_easy/util/loading_util.dart';
 import 'package:flutter_easy/util/log_util.dart';
@@ -41,9 +43,34 @@ class _Tab1State extends State<Tab1> {
         RaisedButton(onPressed: _showWebView, child: Text('WebView')),
         RaisedButton(
             onPressed: _permissionRequest, child: Text("Permission Request")),
-        RaisedButton(onPressed: _httpTest, child: Text('Http Test'))
+        RaisedButton(onPressed: _httpTest, child: Text('Http Test')),
+        _buildHero()
       ],
     )));
+  }
+
+  _buildHero() {
+    return Container(
+        child: GestureDetector(
+            child: Hero(
+                tag: "myhero",
+                child: CircleAvatar(
+                    backgroundImage: AssetImage('assets/images/avatar.jpg'),
+                    radius: 30),
+                placeholderBuilder:
+                    (BuildContext context, Size heroSize, Widget child) {
+                  return Container(
+                    height: 50.0,
+                    width: 50.0,
+                    child: CircularProgressIndicator(
+                      backgroundColor: Colors.pink,
+                    ),
+                  );
+                }),
+            onTap: () {
+              Config.router.navigateTo(context, Routes.about,
+                  transition: TransitionType.fadeIn);
+            }));
   }
 
   _showToast() {
