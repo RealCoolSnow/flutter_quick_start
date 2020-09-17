@@ -3,7 +3,7 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-10 15:02:22
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-14 11:42:04
+ * @LastEditTime: 2020-09-17 17:26:27
 -->
 <p align="center">
     <a href="README.md">English</a>
@@ -14,9 +14,7 @@
 
 # 截屏
 <p align="center">
-  <img src="screenshot/1.png" width="30%" /> 
-  <img src="screenshot/2.png" width="30%" /> 
-  <img src="screenshot/3.png" width="30%" /> 
+  <img src="screenshot/screen.gif" width="30%" />
 </p>
 
 # 代码目录

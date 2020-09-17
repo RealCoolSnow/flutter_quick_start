@@ -3,7 +3,7 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-10 14:01:06
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-14 11:41:25
+ * @LastEditTime: 2020-09-17 17:25:54
 -->
 <p align="center">
     <a href="README_CN.md">中文介绍</a>
@@ -14,9 +14,7 @@ This is an app that contains many librarys, including network, routing, storage,
 
 # screenshot
 <p align="center">
-  <img src="screenshot/1.png" width="30%" /> 
-  <img src="screenshot/2.png" width="30%" /> 
-  <img src="screenshot/3.png" width="30%" /> 
+  <img src="screenshot/screen.gif" width="30%" /> 
 </p>
 
 # description
