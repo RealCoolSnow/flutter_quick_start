@@ -5,7 +5,7 @@
  * @LastEditors: CoolSnow
  * @LastEditTime: 2020-09-11 14:54:05
  */
-import 'package:clipboard/clipboard.dart';
+import 'package:flutter/services.dart';
 
 ///
 /// Clipboard Util
@@ -13,10 +13,10 @@ import 'package:clipboard/clipboard.dart';
 ///
 class ClipboardUtil {
   static Future<void> copy(String text) {
-    return FlutterClipboard.copy(text);
+    return Clipboard.setData(ClipboardData(text: text));
   }
 
-  static Future<String> paste() {
-    return FlutterClipboard.paste();
+  static Future<ClipboardData> paste() {
+    return Clipboard.getData("text/plain");
   }
 }
