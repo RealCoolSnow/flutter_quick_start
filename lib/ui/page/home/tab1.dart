@@ -3,7 +3,7 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-11 16:01:48
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-16 18:38:01
+ * @LastEditTime: 2020-09-16 18:48:13
  */
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
@@ -56,17 +56,7 @@ class _Tab1State extends State<Tab1> {
                 tag: "myhero",
                 child: CircleAvatar(
                     backgroundImage: AssetImage('assets/images/avatar.jpg'),
-                    radius: 30),
-                placeholderBuilder:
-                    (BuildContext context, Size heroSize, Widget child) {
-                  return Container(
-                    height: 50.0,
-                    width: 50.0,
-                    child: CircularProgressIndicator(
-                      backgroundColor: Colors.pink,
-                    ),
-                  );
-                }),
+                    radius: 30)),
             onTap: () {
               Config.router.navigateTo(context, Routes.about,
                   transition: TransitionType.fadeIn);
