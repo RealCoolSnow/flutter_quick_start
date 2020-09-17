@@ -3,7 +3,7 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-11 16:01:48
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-16 18:48:13
+ * @LastEditTime: 2020-09-17 19:05:39
  */
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +12,6 @@ import 'package:flutter_easy/config/pref_key.dart';
 import 'package:flutter_easy/config/route/routes.dart';
 import 'package:flutter_easy/service/http/http_util.dart';
 import 'package:flutter_easy/storage/Pref.dart';
-import 'package:flutter_easy/ui/page/about.dart';
 import 'package:flutter_easy/util/device_util.dart';
 import 'package:flutter_easy/util/loading_util.dart';
 import 'package:flutter_easy/util/log_util.dart';

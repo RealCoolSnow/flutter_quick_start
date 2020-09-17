@@ -3,11 +3,11 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-09 10:38:59
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-16 16:26:10
+ * @LastEditTime: 2020-09-17 19:06:09
  */
 import 'dart:ui';
 
-import 'package:fluro/fluro.dart';
+import 'package:fluro/fluro.dart' as fluro;
 import 'package:flutter/material.dart';
 import 'package:flutter_easy/ui/page/home.dart';
 import 'package:flutter_easy/ui/page/splash_screen.dart';
@@ -28,7 +28,7 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   _AppState() {
     //---router
-    final router = Router();
+    final router = fluro.Router();
     Routes.configureRoutes(router);
     Config.router = router;
     //---shared preferences
