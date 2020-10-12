@@ -3,12 +3,13 @@
  * @Author: CoolSnow (coolsnow2020@gmail.com)
  * @Date: 2020-09-09 10:38:59
  * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-17 19:06:09
+ * @LastEditTime: 2020-09-21 10:44:48
  */
 import 'dart:ui';
 
 import 'package:fluro/fluro.dart' as fluro;
 import 'package:flutter/material.dart';
+import 'package:flutter_easy/ui/app_theme.dart';
 import 'package:flutter_easy/ui/page/home.dart';
 import 'package:flutter_easy/ui/page/splash_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -43,8 +44,8 @@ class _AppState extends State<App> {
       title: Config.app,
       debugShowCheckedModeBanner: false,
       theme: new ThemeData(
-        primarySwatch: Colors.blue,
-        splashColor: Colors.pink,
+        primarySwatch: AppTheme.primary,
+        splashColor: AppTheme.splash,
       ),
       localizationsDelegates: [
         const I18nDelegate(),
