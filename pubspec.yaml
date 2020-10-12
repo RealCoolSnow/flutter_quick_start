@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.8.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -42,13 +42,13 @@ dependencies:
   # device_info  - https://pub.flutter-io.cn/packages/device_info
   device_info: ^0.4.2+7
   # webview_flutter - https://pub.flutter-io.cn/packages/webview_flutter
-  webview_flutter: ^0.3.22+1
+  webview_flutter: ^1.0.1
   # permission_handler - https://pub.flutter-io.cn/packages/permission_handler
   permission_handler: ^5.0.1+1
   # back_button_interceptor - https://pub.flutter-io.cn/packages/back_button_interceptor
   back_button_interceptor: ^4.3.0
   # flutter_easyloading - https://github.com/huangjianke/flutter_easyloading
-  flutter_easyloading: ^1.1.4
+  flutter_easyloading: ^2.0.0
   
 dev_dependencies:
   flutter_test:
