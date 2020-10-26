@@ -13,5 +13,5 @@ class Config {
   static const String app = "flutter_easy";
 
   /// router
-  static Router router;
+  static FluroRouter router;
 }

@@ -7,7 +7,7 @@
  */
 import 'dart:ui';
 
-import 'package:fluro/fluro.dart' as fluro;
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easy/ui/app_theme.dart';
 import 'package:flutter_easy/ui/page/home.dart';
@@ -29,7 +29,7 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   _AppState() {
     //---router
-    final router = fluro.Router();
+    final router = FluroRouter();
     Routes.configureRoutes(router);
     Config.router = router;
     //---shared preferences

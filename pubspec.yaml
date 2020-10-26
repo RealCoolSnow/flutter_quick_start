@@ -30,7 +30,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
   # route - https://github.com/theyakka/fluro
-  fluro: ^1.6.3
+  fluro: ^1.7.6
   # https://github.com/flutter/plugins/tree/master/packages/shared_preferences/shared_preferences
   shared_preferences: ^0.5.10
   # logger - https://github.com/leisim/logger
