@@ -9,18 +9,18 @@ import 'dart:ui';
 
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_easy/ui/app_theme.dart';
-import 'package:flutter_easy/ui/page/home.dart';
-import 'package:flutter_easy/ui/page/splash_screen.dart';
+import 'package:flutter_quick_start/ui/app_theme.dart';
+import 'package:flutter_quick_start/ui/page/home.dart';
+import 'package:flutter_quick_start/ui/page/splash_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_easy/config/config.dart';
-import 'package:flutter_easy/config/pref_key.dart';
-import 'package:flutter_easy/config/route/routes.dart';
-import 'package:flutter_easy/locale/i18n.dart';
-import 'package:flutter_easy/locale/locale_util.dart';
-import 'package:flutter_easy/storage/Pref.dart';
-import 'package:flutter_easy/util/log_util.dart';
-import 'package:flutter_easy/util/time_util.dart';
+import 'package:flutter_quick_start/config/config.dart';
+import 'package:flutter_quick_start/config/pref_key.dart';
+import 'package:flutter_quick_start/config/route/routes.dart';
+import 'package:flutter_quick_start/locale/i18n.dart';
+import 'package:flutter_quick_start/locale/locale_util.dart';
+import 'package:flutter_quick_start/storage/Pref.dart';
+import 'package:flutter_quick_start/util/log_util.dart';
+import 'package:flutter_quick_start/util/time_util.dart';
 
 class App extends StatefulWidget {
   _AppState createState() => new _AppState();

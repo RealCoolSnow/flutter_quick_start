@@ -9,7 +9,7 @@
     <a href="README_CN.md">中文介绍</a>
 </p>
 
-# flutter_easy
+# flutter_quick_start
 This is an app that contains many librarys, including network, routing, storage, localization, webview, logging, etc. It can help you develop flutter app quickly.
 
 # screenshot
@@ -35,9 +35,9 @@ This is an app that contains many librarys, including network, routing, storage,
 
 # How to use
 
-1. Replace string 'com.coolsnow.flutter_easy' to [YOUR PACKAGE NAME] in all files.
+1. Replace string 'com.coolsnow.flutter_quick_start' to [YOUR PACKAGE NAME] in all files.
 
-2. Replace string 'flutter_easy' to [YOUR PROJECT NAME] in all files.
+2. Replace string 'flutter_quick_start' to [YOUR PROJECT NAME] in all files.
 
 3. Develop your application base on this project. ●＾●
 

@@ -9,7 +9,7 @@
     <a href="README.md">English</a>
 </p>
 
-# flutter_easy
+# flutter_quick_start
 本项目旨在帮助你快速构建Flutter应用，它包含了网络请求、路由、存储、本地化、WebView, 日志等常用的基本功能。
 
 # 截屏
@@ -35,9 +35,9 @@
 
 # 如何使用
 
-1. 全局替换 'com.coolsnow.flutter_easy' 为 '你的包名'
+1. 全局替换 'com.coolsnow.flutter_quick_start' 为 '你的包名'
 
-2. 全局替换 'flutter_easy' 为 '你的工程名'
+2. 全局替换 'flutter_quick_start' 为 '你的工程名'
 
 3. 基于此代码开发应用就好了. ●＾●
 

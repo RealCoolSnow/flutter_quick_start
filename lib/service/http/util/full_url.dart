@@ -5,10 +5,10 @@
  * @LastEditors: CoolSnow
  * @LastEditTime: 2020-09-10 11:58:23
  */
-import 'package:flutter_easy/config/config.dart';
-import 'package:flutter_easy/locale/locale_util.dart';
-import 'package:flutter_easy/util/device_util.dart';
-import 'package:flutter_easy/util/time_util.dart';
+import 'package:flutter_quick_start/config/config.dart';
+import 'package:flutter_quick_start/locale/locale_util.dart';
+import 'package:flutter_quick_start/util/device_util.dart';
+import 'package:flutter_quick_start/util/time_util.dart';
 
 class FullUrl {
   static String make(String url, Map<String, String> params) {

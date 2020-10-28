@@ -12,11 +12,11 @@ import 'dart:core';
 import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_easy/locale/i18n.dart';
-import 'package:flutter_easy/ui/webview/channel/flutter_channel.dart';
-import 'package:flutter_easy/util/clipboard_util.dart';
-import 'package:flutter_easy/util/log_util.dart';
-import 'package:flutter_easy/util/toast_util.dart';
+import 'package:flutter_quick_start/locale/i18n.dart';
+import 'package:flutter_quick_start/ui/webview/channel/flutter_channel.dart';
+import 'package:flutter_quick_start/util/clipboard_util.dart';
+import 'package:flutter_quick_start/util/log_util.dart';
+import 'package:flutter_quick_start/util/toast_util.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 ///

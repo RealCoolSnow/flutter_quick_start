@@ -6,12 +6,12 @@
  * @LastEditTime: 2020-09-10 14:25:03
  */
 import 'package:dio/dio.dart';
-import 'package:flutter_easy/config/config.dart';
-import 'package:flutter_easy/service/http/util/full_url.dart';
-import 'package:flutter_easy/service/http/http_config.dart';
-import 'package:flutter_easy/service/http/util/http_error.dart';
-import 'package:flutter_easy/service/http/util/http_exception.dart';
-import 'package:flutter_easy/service/http/interceptor/interceptor_list.dart';
+import 'package:flutter_quick_start/config/config.dart';
+import 'package:flutter_quick_start/service/http/util/full_url.dart';
+import 'package:flutter_quick_start/service/http/http_config.dart';
+import 'package:flutter_quick_start/service/http/util/http_error.dart';
+import 'package:flutter_quick_start/service/http/util/http_exception.dart';
+import 'package:flutter_quick_start/service/http/interceptor/interceptor_list.dart';
 
 /// Usage:
 ///

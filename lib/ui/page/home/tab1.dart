@@ -7,17 +7,17 @@
  */
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_easy/config/config.dart';
-import 'package:flutter_easy/config/pref_key.dart';
-import 'package:flutter_easy/config/route/routes.dart';
-import 'package:flutter_easy/service/http/http_util.dart';
-import 'package:flutter_easy/storage/Pref.dart';
-import 'package:flutter_easy/util/device_util.dart';
-import 'package:flutter_easy/util/loading_util.dart';
-import 'package:flutter_easy/util/log_util.dart';
-import 'package:flutter_easy/util/permission_util.dart';
-import 'package:flutter_easy/util/time_util.dart';
-import 'package:flutter_easy/util/toast_util.dart';
+import 'package:flutter_quick_start/config/config.dart';
+import 'package:flutter_quick_start/config/pref_key.dart';
+import 'package:flutter_quick_start/config/route/routes.dart';
+import 'package:flutter_quick_start/service/http/http_util.dart';
+import 'package:flutter_quick_start/storage/Pref.dart';
+import 'package:flutter_quick_start/util/device_util.dart';
+import 'package:flutter_quick_start/util/loading_util.dart';
+import 'package:flutter_quick_start/util/log_util.dart';
+import 'package:flutter_quick_start/util/permission_util.dart';
+import 'package:flutter_quick_start/util/time_util.dart';
+import 'package:flutter_quick_start/util/toast_util.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:permission_handler/permission_handler.dart';
 
