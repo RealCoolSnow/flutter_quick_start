@@ -76,7 +76,7 @@ class _Tab1State extends State<Tab1> {
   }
 
   _showPreferences() {
-    Pref.getString(PrefKey.launchTime).then((value) {
+    Pref.getString(PrefKey.launchTime, "").then((value) {
       String str = 'launch time: $value';
       ToastUtil.show(str);
     });
