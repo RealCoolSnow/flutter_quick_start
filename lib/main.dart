@@ -5,7 +5,7 @@
  * @LastEditors: CoolSnow
  * @LastEditTime: 2020-09-10 14:23:24
  */
-import 'package:flutter/material.dart';
+import 'package:flutter_quick_start/app_sentry.dart';
 import 'package:flutter_quick_start/ui/app.dart';
 
-void main() => runApp(App());
+void main() => AppSentry.runWithCatchError(App());
