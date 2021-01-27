@@ -6,9 +6,10 @@
  * @LastEditTime: 2020-09-21 10:44:48
  */
 import 'dart:ui';
-
+import 'dart:io';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_quick_start/ui/app_theme.dart';
 import 'package:flutter_quick_start/ui/page/home.dart';
 import 'package:flutter_quick_start/ui/page/splash_screen.dart';
@@ -40,7 +41,16 @@ class _AppState extends State<App> {
   }
   @override
   Widget build(BuildContext context) {
-    final app = MaterialApp(
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+      statusBarBrightness:
+          Platform.isAndroid ? Brightness.dark : Brightness.light,
+      systemNavigationBarColor: Colors.white,
+      systemNavigationBarDividerColor: Colors.grey,
+      systemNavigationBarIconBrightness: Brightness.dark,
+    ));
+    return MaterialApp(
       title: Config.app,
       debugShowCheckedModeBanner: false,
       theme: new ThemeData(
@@ -56,7 +66,6 @@ class _AppState extends State<App> {
       onGenerateRoute: Config.router.generator,
       home: _buildSplashScreen(),
     );
-    return app;
   }
 
   _buildSplashScreen() {
