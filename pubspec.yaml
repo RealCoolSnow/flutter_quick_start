@@ -49,7 +49,8 @@ dependencies:
   back_button_interceptor: ^5.0.0
   # flutter_easyloading - https://pub.flutter-io.cn/packages/flutter_easyloading
   flutter_easyloading: ^2.2.2
-  
+  # google_mobile_ads - https://pub.dev/packages/google_mobile_ads
+  google_mobile_ads: ^0.11.0+2
 dev_dependencies:
   flutter_test:
     sdk: flutter
