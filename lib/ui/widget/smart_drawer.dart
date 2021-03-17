@@ -61,8 +61,9 @@ class _SmartDrawerState extends State<SmartDrawer> {
       case TargetPlatform.linux:
       case TargetPlatform.macOS:
       case TargetPlatform.windows:
-        label = (widget.semanticLabel ??
-            MaterialLocalizations.of(context)?.drawerLabel)!;
+        // label = (widget.semanticLabel ??
+        //     MaterialLocalizations.of(context)?.drawerLabel)!;
+        label = widget.semanticLabel;
         break;
     }
     final double _width =
