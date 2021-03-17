@@ -11,7 +11,7 @@ import 'package:flutter_quick_start/util/device_util.dart';
 import 'package:flutter_quick_start/util/time_util.dart';
 
 class FullUrl {
-  static String make(String url, Map<String, String> params) {
+  static String make(String url, Map<String, String>? params) {
     var u = url;
     if (u.contains('?')) {
       u += ('&platform=' + DeviceUtil.getName());

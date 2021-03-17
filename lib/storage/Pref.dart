@@ -29,7 +29,7 @@ class Pref {
 
   static Future<String> getString(String key, String def) async {
     final SharedPreferences prefs = await _prefs;
-    String v = prefs.getString(key);
+    String? v = prefs.getString(key);
     return v == null ? def : v;
   }
 
@@ -40,7 +40,7 @@ class Pref {
 
   static Future<bool> getBool(String key, bool def) async {
     final SharedPreferences prefs = await _prefs;
-    bool v = prefs.getBool(key);
+    bool? v = prefs.getBool(key);
     return v == null ? def : v;
   }
 
@@ -51,7 +51,7 @@ class Pref {
 
   static Future<int> getInt(String key, int def) async {
     final SharedPreferences prefs = await _prefs;
-    int v = prefs.getInt(key);
+    int? v = prefs.getInt(key);
     return v == null ? def : v;
   }
 
@@ -62,7 +62,7 @@ class Pref {
 
   static Future<double> getDouble(String key, double def) async {
     final SharedPreferences prefs = await _prefs;
-    double v = prefs.getDouble(key);
+    double? v = prefs.getDouble(key);
     return v == null ? def : v;
   }
 }

@@ -6,7 +6,7 @@
  * @LastEditTime: 2020-09-14 11:10:06
  */
 import 'package:flutter/material.dart';
-import 'package:flutter_quick_start/ui/widget/shimmer.dart';
+import 'package:shimmer/shimmer.dart';
 
 class Tab3 extends StatefulWidget {
   @override
@@ -25,8 +25,8 @@ class _Tab3State extends State<Tab3> {
         children: <Widget>[
           Expanded(
             child: Shimmer.fromColors(
-              baseColor: Colors.grey[300],
-              highlightColor: Colors.grey[100],
+              baseColor: Colors.grey[300]!,
+              highlightColor: Colors.grey[100]!,
               enabled: _enabled,
               child: ListView.builder(
                 itemBuilder: (_, __) => Padding(
@@ -87,7 +87,7 @@ class _Tab3State extends State<Tab3> {
                 },
                 child: Text(
                   _enabled ? 'Stop Shimmer' : 'Start Shimmer',
-                  style: Theme.of(context).textTheme.button.copyWith(
+                  style: Theme.of(context).textTheme.button!.copyWith(
                       fontSize: 18.0,
                       color: _enabled ? Colors.red : Colors.blue),
                 )),

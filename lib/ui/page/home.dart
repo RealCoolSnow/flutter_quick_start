@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildAppBar() {
+  AppBar _buildAppBar() {
     return AppBar(
       title: Text(I18n.of(context).text('app_name')),
       actions: <Widget>[],
@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildTabBar() {
+  TabBar _buildTabBar() {
     return TabBar(
       indicatorColor: Colors.white,
       tabs: <Widget>[

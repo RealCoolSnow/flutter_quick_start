@@ -18,10 +18,10 @@ class LocaleUtil {
       supportedLanguages.map<Locale>((lang) => new Locale(lang, ''));
 
   /// Callback for manual locale changed
-  LocaleChangeCallback onLocaleChanged;
+  late LocaleChangeCallback onLocaleChanged;
 
-  Locale locale;
-  String languageCode;
+  late Locale locale;
+  String languageCode = "en";
 
   static final LocaleUtil _localeUtil = new LocaleUtil._internal();
 

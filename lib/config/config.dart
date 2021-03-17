@@ -13,5 +13,5 @@ class Config {
   static const String app = "flutter_quick_start";
 
   /// router
-  static FluroRouter router;
+  static late FluroRouter router;
 }

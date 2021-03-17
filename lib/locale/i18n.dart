@@ -24,17 +24,17 @@ class I18n {
     _localizedValues = null;
   }
 
-  Locale locale;
-  static Map<dynamic, dynamic> _localizedValues;
-  static Map<dynamic, dynamic> _localizedValuesEn; // English map
+  late Locale locale;
+  static Map<dynamic, dynamic>? _localizedValues;
+  static Map<dynamic, dynamic>? _localizedValuesEn; // English map
 
   static I18n of(BuildContext context) {
-    return Localizations.of<I18n>(context, I18n);
+    return Localizations.of<I18n>(context, I18n)!;
   }
 
   String text(String key) {
     try {
-      String value = _localizedValues[key];
+      String value = _localizedValues![key];
       if (value == null || value.isEmpty) {
         return englishText(key);
       } else {
@@ -46,7 +46,7 @@ class I18n {
   }
 
   String englishText(String key) {
-    return _localizedValuesEn[key] ?? '** $key not found';
+    return _localizedValuesEn![key] ?? '** $key not found';
   }
 
   static Future<I18n> load(Locale locale) async {

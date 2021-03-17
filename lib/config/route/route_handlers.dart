@@ -14,20 +14,21 @@ import 'package:flutter_quick_start/ui/webview/webview.dart';
 
 /// home
 var homeHandler = Handler(
-    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
   return HomePage();
 });
 
 /// about
 var aboutHandler = Handler(
-    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
   return AboutPage();
 });
 
 /// webview
 var webviewHanlder = Handler(
-    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
-  String url = params["url"]?.first;
-  String title = params["title"]?.first;
-  return WebViewPage(url: url, title: title);
+    handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  String? url = params["url"]?.first;
+  String? title = params["title"]?.first;
+  return WebViewPage(
+      url: url == null ? "" : url, title: title == null ? "" : title);
 });

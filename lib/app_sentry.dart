@@ -10,7 +10,7 @@ class AppSentry {
       if (!inProduction) {
         FlutterError.dumpErrorToConsole(details);
       } else {
-        Zone.current.handleUncaughtError(details.exception, details.stack);
+        Zone.current.handleUncaughtError(details.exception, details.stack!);
       }
     };
     runZonedGuarded<Future<Null>>(() async {

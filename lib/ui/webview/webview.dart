@@ -26,12 +26,12 @@ import 'package:webview_flutter/webview_flutter.dart';
 class WebViewPage extends StatefulWidget {
   final String url;
   final String title;
-  WebViewPage({@required this.url, this.title = ""});
+  WebViewPage({required this.url, this.title = ""});
   _WebViewPageState createState() => _WebViewPageState();
 }
 
 class _WebViewPageState extends State<WebViewPage> {
-  String url;
+  String url = "";
   String title = "";
 
   /// load html from local Assets
@@ -89,7 +89,7 @@ class _WebViewPageState extends State<WebViewPage> {
     if (title.isEmpty) {
       var _title = await controller.getTitle();
       setState(() {
-        title = _title;
+        title = _title == null ? "" : _title;
       });
     }
   }
@@ -180,10 +180,10 @@ class WebViewMenu extends StatelessWidget {
           onSelected: (MenuOptions value) {
             switch (value) {
               case MenuOptions.refresh:
-                _onRefresh(controller.data, context);
+                _onRefresh(controller.data!, context);
                 break;
               case MenuOptions.copyLink:
-                _onCopyLink(controller.data, context);
+                _onCopyLink(controller.data!, context);
                 break;
             }
           },
@@ -207,7 +207,7 @@ class WebViewMenu extends StatelessWidget {
   }
 
   void _onCopyLink(WebViewController controller, BuildContext context) async {
-    String url = await controller.currentUrl();
+    String url = (await controller.currentUrl())!;
     await ClipboardUtil.copy(url);
     ToastUtil.show(I18n.of(context).text('copied'));
   }
