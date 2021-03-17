@@ -5,6 +5,7 @@
  * @LastEditors: CoolSnow
  * @LastEditTime: 2020-09-11 16:04:30
  */
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quick_start/config/config.dart';
@@ -21,18 +22,49 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
+  PageController _pageController = PageController();
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        appBar: _buildAppBar(),
-        drawer: _buildDrawer(),
+          appBar: _buildAppBar(),
+          drawer: _buildDrawer(),
 
-        ///to disable slide slip
-        ///drawerEdgeDragWidth: 0.0,
-        body: _buildBody(),
-      ),
+          ///to disable slide slip
+          ///drawerEdgeDragWidth: 0.0,
+          body: _buildBody(),
+          bottomNavigationBar: BottomNavyBar(
+            selectedIndex: _selectedIndex,
+            showElevation: false,
+            onItemSelected: (index) => setState(() {
+              _selectedIndex = index;
+              _pageController.animateToPage(index,
+                  duration: Duration(milliseconds: 300), curve: Curves.ease);
+            }),
+            items: [
+              BottomNavyBarItem(
+                icon: Icon(Icons.home),
+                title: Text('Home'),
+                activeColor: Colors.red,
+              ),
+              BottomNavyBarItem(
+                  icon: Icon(Icons.change_history),
+                  title: Text('Create'),
+                  activeColor: Colors.purpleAccent),
+              BottomNavyBarItem(
+                  icon: Icon(Icons.face),
+                  title: Text('Me'),
+                  activeColor: Colors.blueAccent),
+            ],
+          )),
     );
   }
 
@@ -40,7 +72,7 @@ class _HomePageState extends State<HomePage> {
     return AppBar(
       title: Text(I18n.of(context).text('app_name')),
       actions: <Widget>[],
-      bottom: _buildTabBar(),
+      // bottom: _buildTabBar(),
     );
   }
 
@@ -90,8 +122,17 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildBody() {
-    return TabBarView(children: [Tab1(), Tab2(), Tab3()]);
+    return PageView(
+        controller: _pageController,
+        onPageChanged: (index) {
+          setState(() => _selectedIndex = index);
+        },
+        children: <Widget>[Tab1(), Tab2(), Tab3()]);
   }
+
+  // Widget _buildBody() {
+  //   return TabBarView(children: [Tab1(), Tab2(), Tab3()]);
+  // }
 
   void _handlerDrawerButton() {
     Scaffold.of(context).openDrawer();
