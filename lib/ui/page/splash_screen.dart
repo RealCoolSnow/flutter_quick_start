@@ -26,14 +26,14 @@ class SplashScreen extends StatefulWidget {
   final double photoSize;
   final dynamic onClick;
   final Color loaderColor;
-  final ImageProvider icon;
+  final ImageProvider? icon;
   final Text loadingText;
-  final ImageProvider imageBackground;
-  final Gradient gradientBackground;
+  final ImageProvider? imageBackground;
+  final Gradient? gradientBackground;
   SplashScreen(
-      {this.loaderColor,
-      @required this.seconds,
-      this.photoSize,
+      {this.loaderColor = Colors.white,
+      this.seconds = 5,
+      this.photoSize = 50,
       this.onClick,
       this.navigateAfterSeconds,
       this.title = const Text(""),
@@ -82,7 +82,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     ? null
                     : new DecorationImage(
                         fit: BoxFit.cover,
-                        image: widget.imageBackground,
+                        image: widget.imageBackground!,
                       ),
                 gradient: widget.gradientBackground,
                 color: widget.backgroundColor,

@@ -10,6 +10,6 @@ import 'package:flutter/material.dart';
 class AppTheme {
   AppTheme._();
 
-  static const Color primary = Colors.blue;
-  static const Color splash = Colors.pink;
+  static const MaterialColor primary = Colors.blue;
+  static const MaterialColor splash = Colors.pink;
 }

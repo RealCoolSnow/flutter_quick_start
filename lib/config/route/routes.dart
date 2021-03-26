@@ -20,7 +20,7 @@ class Routes {
   static const String webview = "/webview";
   static void configureRoutes(FluroRouter router) {
     router.notFoundHandler = Handler(
-        handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+        handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
       print("ROUTE WAS NOT FOUND !!!");
     });
     router.define(home, handler: homeHandler);

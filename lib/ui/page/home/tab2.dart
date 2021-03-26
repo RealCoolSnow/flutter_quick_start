@@ -12,8 +12,8 @@ class Tab2 extends StatefulWidget {
 }
 
 class _Tab2State extends State<Tab2> with SingleTickerProviderStateMixin {
-  AnimationController animationController;
-  Animation animation;
+  late AnimationController animationController;
+  late Animation<double> animation;
   static const double imgSize = 180;
   @override
   void initState() {
@@ -57,7 +57,7 @@ class _Tab2State extends State<Tab2> with SingleTickerProviderStateMixin {
 }
 
 class Transition extends StatelessWidget {
-  Transition({this.child, this.animation});
+  Transition({required this.child, required this.animation});
 
   final Widget child;
   final Animation<double> animation;
@@ -66,7 +66,7 @@ class Transition extends StatelessWidget {
     return Center(
       child: AnimatedBuilder(
           animation: animation,
-          builder: (BuildContext context, Widget child) {
+          builder: (BuildContext context, Widget? child) {
             return Container(
                 height: animation.value, width: animation.value, child: child);
           },

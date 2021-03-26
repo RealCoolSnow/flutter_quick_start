@@ -16,7 +16,7 @@ class ClipboardUtil {
     return Clipboard.setData(ClipboardData(text: text));
   }
 
-  static Future<ClipboardData> paste() {
+  static Future<ClipboardData?> paste() {
     return Clipboard.getData("text/plain");
   }
 }

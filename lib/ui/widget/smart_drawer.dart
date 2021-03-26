@@ -14,16 +14,16 @@ import 'package:flutter/material.dart';
 ///
 class SmartDrawer extends StatefulWidget {
   final double elevation;
-  final Widget child;
+  final Widget? child;
   final String semanticLabel;
   final double widthPercent;
-  final DrawerCallback callback;
+  final DrawerCallback? callback;
   const SmartDrawer({
-    Key key,
+    Key? key,
     this.elevation = 16.0,
     this.child,
-    this.semanticLabel,
-    this.widthPercent,
+    this.semanticLabel = "",
+    this.widthPercent = 0.5,
     this.callback,
   })  : assert(widthPercent < 1.0 && widthPercent > 0.0),
         super(key: key);
@@ -35,7 +35,7 @@ class _SmartDrawerState extends State<SmartDrawer> {
   @override
   void initState() {
     if (widget.callback != null) {
-      widget.callback(true);
+      widget.callback!(true);
     }
     super.initState();
   }
@@ -43,7 +43,7 @@ class _SmartDrawerState extends State<SmartDrawer> {
   @override
   void dispose() {
     if (widget.callback != null) {
-      widget.callback(false);
+      widget.callback!(false);
     }
     super.dispose();
   }
@@ -61,8 +61,9 @@ class _SmartDrawerState extends State<SmartDrawer> {
       case TargetPlatform.linux:
       case TargetPlatform.macOS:
       case TargetPlatform.windows:
-        label = widget.semanticLabel ??
-            MaterialLocalizations.of(context)?.drawerLabel;
+        // label = (widget.semanticLabel ??
+        //     MaterialLocalizations.of(context)?.drawerLabel)!;
+        label = widget.semanticLabel;
         break;
     }
     final double _width =

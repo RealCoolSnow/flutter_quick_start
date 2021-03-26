@@ -33,8 +33,8 @@ class HttpUtil {
   static const String GET = "get";
   static const String POST = "post";
   static const String UPLOAD = "upload";
-  Dio _dio;
-  BaseOptions _baseOption;
+  late Dio _dio;
+  late BaseOptions _baseOption;
   factory HttpUtil() {
     return _instance;
   }
@@ -59,7 +59,7 @@ class HttpUtil {
   }
 
   /// get
-  Future<dynamic> get(String path, {Map<String, String> getParams}) {
+  Future<dynamic> get(String path, {Map<String, String>? getParams}) {
     return request(path, GET, getParams: getParams);
   }
 
@@ -74,7 +74,7 @@ class HttpUtil {
   }
 
   Future<dynamic> request(String path, String mode,
-      {postData, Map<String, String> getParams}) async {
+      {postData, Map<String, String>? getParams}) async {
     try {
       path = FullUrl.make(path, getParams);
       var resp;
@@ -94,8 +94,8 @@ class HttpUtil {
           : resp.data['data'];
     } on DioError catch (e) {
       int code = HttpError.UNKNOWN;
-      if (e.response != null && e.response.statusCode != null) {
-        code = e.response.statusCode;
+      if (e.response != null && e.response!.statusCode != null) {
+        code = e.response!.statusCode!;
       }
       return Future.error(HttpException(code, e.message));
     } catch (e) {

@@ -27,34 +27,34 @@ class LoadingUtil {
   }
 
   /// show progress with [value] [status], value should be 0.0 ~ 1.0.
-  static showProgress(double value, {String status}) {
+  static showProgress(double value, {String? status}) {
     EasyLoading.showProgress(value, status: status);
   }
 
   static showSuccess(
     String status, {
-    Duration duration,
+    Duration? duration,
   }) {
     EasyLoading.showSuccess(status, duration: duration);
   }
 
   static showError(
     String status, {
-    Duration duration,
+    Duration? duration,
   }) {
     EasyLoading.showError(status, duration: duration);
   }
 
   static showInfo(
     String status, {
-    Duration duration,
+    Duration? duration,
   }) {
     EasyLoading.showInfo(status, duration: duration);
   }
 
   static showToast(
     String status, {
-    Duration duration,
+    Duration? duration,
   }) {
     EasyLoading.showToast(status, duration: duration);
   }
