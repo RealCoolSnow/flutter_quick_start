@@ -11,26 +11,26 @@ import 'package:flutter_quick_start/util/log_util.dart';
 
 class HeaderInterceptor extends Interceptor {
   @override
-  Future onRequest(RequestOptions options) {
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     options.headers.addAll({"app": Config.app});
-    return super.onRequest(options);
+    super.onRequest(options, handler);
   }
 
   @override
-  Future onResponse(Response response) {
+  void onResponse(Response response, ResponseInterceptorHandler handler) {
     if (Config.debug) {
       logUtil.d('onResponse: ' + response.data.toString());
     }
-    return super.onResponse(response);
+    super.onResponse(response, handler);
   }
 }
 
 class ErrorInterceptor extends Interceptor {
   @override
-  Future onError(DioError err) {
+  void onError(DioError err, ErrorInterceptorHandler handler) {
     if (Config.debug) {
       logUtil.d(err.toString());
     }
-    return super.onError(err);
+    super.onError(err, handler);
   }
 }

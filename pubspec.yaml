@@ -32,27 +32,27 @@ dependencies:
   # fluro(Null safety) - https://pub.flutter-io.cn/packages/fluro
   fluro: ^2.0.3
   # shared_preferences(Null safety)https://pub.flutter-io.cn/packages/shared_preferences
-  shared_preferences: ^2.0.5
+  shared_preferences: ^2.0.6
   # logger(Null safety) - https://pub.flutter-io.cn/packages/logger
-  logger: ^1.0.0-nullsafety.0
+  logger: ^1.0.0
   # toast(Null safety) - https://pub.flutter-io.cn/packages/fluttertoast
-  fluttertoast: ^8.0.1-nullsafety.0
+  fluttertoast: ^8.0.8
   # dio(Null safety) - https://pub.flutter-io.cn/packages/dio
-  dio: ^4.0.0-beta7
+  dio: ^4.0.0
   # device_info(Null safety)  - https://pub.flutter-io.cn/packages/device_info
-  device_info: ^2.0.0
+  device_info: ^2.0.2
   # webview_flutter(Null safety) - https://pub.flutter-io.cn/packages/webview_flutter
-  webview_flutter: ^2.0.2
+  webview_flutter: ^2.0.10
   # permission_handler(Null safety) - https://pub.flutter-io.cn/packages/permission_handler
-  permission_handler: ^6.1.0
+  permission_handler: ^8.1.4+2
   # back_button_interceptor(Null safety) - https://pub.flutter-io.cn/packages/back_button_interceptor
-  back_button_interceptor: ^5.0.0
+  back_button_interceptor: ^5.0.1
   # flutter_easyloading(Null safety) - https://pub.flutter-io.cn/packages/flutter_easyloading
   flutter_easyloading: ^3.0.0
   # shimmer(Null safety) - https://pub.flutter-io.cn/packages/shimmer
-  shimmer: ^2.0.0-nullsafety.0
+  shimmer: ^2.0.0
   # bottom_navy_bar(Null safety) - https://pub.flutter-io.cn/packages/bottom_navy_bar
-  bottom_navy_bar: ^6.0.0-nullsafety.0
+  bottom_navy_bar: ^6.0.0
 
 dev_dependencies:
   flutter_test:
