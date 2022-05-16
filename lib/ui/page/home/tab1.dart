@@ -34,15 +34,15 @@ class _Tab1State extends State<Tab1> {
         child: Container(
             child: Column(
       children: [
-        RaisedButton(onPressed: _showToast, child: Text('Toast')),
-        RaisedButton(onPressed: _showLoading, child: Text('Loading')),
-        RaisedButton(
+        ElevatedButton(onPressed: _showToast, child: Text('Toast')),
+        ElevatedButton(onPressed: _showLoading, child: Text('Loading')),
+        ElevatedButton(
             onPressed: _showPreferences, child: Text('Shared Preferences')),
-        RaisedButton(onPressed: _showDeviceInfo, child: Text('Device Info')),
-        RaisedButton(onPressed: _showWebView, child: Text('WebView')),
-        RaisedButton(
+        ElevatedButton(onPressed: _showDeviceInfo, child: Text('Device Info')),
+        ElevatedButton(onPressed: _showWebView, child: Text('WebView')),
+        ElevatedButton(
             onPressed: _permissionRequest, child: Text("Permission Request")),
-        RaisedButton(onPressed: _httpTest, child: Text('Http Test')),
+        ElevatedButton(onPressed: _httpTest, child: Text('Http Test')),
         _buildHero()
       ],
     )));
