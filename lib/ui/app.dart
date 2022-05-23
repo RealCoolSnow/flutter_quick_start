@@ -10,6 +10,7 @@ import 'dart:io';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_quick_start/models/counter.dart';
 import 'package:flutter_quick_start/ui/app_theme.dart';
 import 'package:flutter_quick_start/ui/page/home.dart';
 import 'package:flutter_quick_start/ui/page/splash_screen.dart';
@@ -22,6 +23,7 @@ import 'package:flutter_quick_start/locale/locale_util.dart';
 import 'package:flutter_quick_start/storage/Pref.dart';
 import 'package:flutter_quick_start/util/log_util.dart';
 import 'package:flutter_quick_start/util/time_util.dart';
+import 'package:provider/provider.dart';
 
 class App extends StatefulWidget {
   _AppState createState() => new _AppState();
@@ -50,21 +52,26 @@ class _AppState extends State<App> {
       systemNavigationBarDividerColor: Colors.grey,
       systemNavigationBarIconBrightness: Brightness.dark,
     ));
-    return MaterialApp(
-      title: Config.app,
-      debugShowCheckedModeBanner: false,
-      theme: new ThemeData(
-        primarySwatch: AppTheme.primary,
-        splashColor: AppTheme.splash,
-      ),
-      localizationsDelegates: [
-        const I18nDelegate(),
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => Counter()),
       ],
-      supportedLocales: localeUtil.supportedLocales(),
-      onGenerateRoute: Config.router.generator,
-      home: _buildSplashScreen(),
+      child: MaterialApp(
+        title: Config.app,
+        debugShowCheckedModeBanner: false,
+        theme: new ThemeData(
+          primarySwatch: AppTheme.primary,
+          splashColor: AppTheme.splash,
+        ),
+        localizationsDelegates: [
+          const I18nDelegate(),
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        supportedLocales: localeUtil.supportedLocales(),
+        onGenerateRoute: Config.router.generator,
+        home: _buildSplashScreen(),
+      ),
     );
   }
 

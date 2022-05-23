@@ -8,6 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_quick_start/locale/i18n.dart';
+import 'package:flutter_quick_start/ui/widget/draggable_card.dart';
 
 class AboutPage extends StatefulWidget {
   _AboutPageState createState() => new _AboutPageState();
@@ -25,10 +26,11 @@ class _AboutPageState extends State<AboutPage> {
           padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
           child: Hero(
               tag: 'myhero',
-              child: CircleAvatar(
+              child: const DraggableCard(
+                  child: CircleAvatar(
                 backgroundImage: AssetImage('assets/images/avatar.jpg'),
                 radius: 120,
-              )),
+              ))),
         ));
   }
 }

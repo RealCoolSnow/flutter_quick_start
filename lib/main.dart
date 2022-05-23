@@ -9,8 +9,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_quick_start/app_sentry.dart';
 import 'package:flutter_quick_start/ui/app.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
+  Provider.debugCheckInvalidValueType = null;
   WidgetsFlutterBinding.ensureInitialized();
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,

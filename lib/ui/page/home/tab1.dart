@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_quick_start/config/config.dart';
 import 'package:flutter_quick_start/config/pref_key.dart';
 import 'package:flutter_quick_start/config/route/routes.dart';
+import 'package:flutter_quick_start/models/counter.dart';
 import 'package:flutter_quick_start/service/http/http_util.dart';
 import 'package:flutter_quick_start/storage/Pref.dart';
 import 'package:flutter_quick_start/util/device_util.dart';
@@ -20,6 +21,7 @@ import 'package:flutter_quick_start/util/time_util.dart';
 import 'package:flutter_quick_start/util/toast_util.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:provider/provider.dart';
 
 class Tab1 extends StatefulWidget {
   _Tab1State createState() => _Tab1State();
@@ -34,15 +36,47 @@ class _Tab1State extends State<Tab1> {
         child: Container(
             child: Column(
       children: [
-        ElevatedButton(onPressed: _showToast, child: Text('Toast')),
-        ElevatedButton(onPressed: _showLoading, child: Text('Loading')),
-        ElevatedButton(
-            onPressed: _showPreferences, child: Text('Shared Preferences')),
-        ElevatedButton(onPressed: _showDeviceInfo, child: Text('Device Info')),
-        ElevatedButton(onPressed: _showWebView, child: Text('WebView')),
-        ElevatedButton(
-            onPressed: _permissionRequest, child: Text("Permission Request")),
-        ElevatedButton(onPressed: _httpTest, child: Text('Http Test')),
+        Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            child: ElevatedButton(
+              onPressed: () {
+                var counter = context.read<Counter>();
+                counter.increment();
+              },
+              child: Consumer<Counter>(
+                builder: (context, counter, child) =>
+                    Text('Counter: ${counter.value}'),
+              ),
+            )),
+        Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            child: ElevatedButton(onPressed: _showToast, child: Text('Toast'))),
+        Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            child: ElevatedButton(
+                onPressed: _showLoading, child: Text('Loading'))),
+        Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            child: ElevatedButton(
+                onPressed: _showPreferences,
+                child: Text('Shared Preferences'))),
+        Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            child: ElevatedButton(
+                onPressed: _showDeviceInfo, child: Text('Device Info'))),
+        Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            child: ElevatedButton(
+                onPressed: _showWebView, child: Text('WebView'))),
+        Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            child: ElevatedButton(
+                onPressed: _permissionRequest,
+                child: Text("Permission Request"))),
+        Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            child:
+                ElevatedButton(onPressed: _httpTest, child: Text('Http Test'))),
         _buildHero()
       ],
     )));
