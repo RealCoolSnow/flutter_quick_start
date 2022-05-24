@@ -39,8 +39,8 @@ dependencies:
   flutter_styled_toast: ^2.1.3
   # dio(Null safety) - https://pub.flutter-io.cn/packages/dio
   dio: ^4.0.6
-  # device_info(Null safety)  - https://pub.flutter-io.cn/packages/device_info
-  device_info: ^2.0.3
+  # device_info_plus(Null safety)  - https://pub.flutter-io.cn/packages/device_info_plus
+  device_info_plus: ^3.2.3
   # webview_flutter(Null safety) - https://pub.flutter-io.cn/packages/webview_flutter
   webview_flutter: ^3.0.4
   # permission_handler(Null safety) - https://pub.flutter-io.cn/packages/permission_handler

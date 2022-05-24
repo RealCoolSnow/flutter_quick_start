@@ -129,12 +129,17 @@ class _Tab1State extends State<Tab1> {
   }
 
   _permissionRequest() async {
-    Map<Permission, PermissionStatus> result = await PermissionUtil.requestAll(
-        [Permission.location, Permission.storage]);
-    ToastUtil.show(context,
-        'Permission.location: ' + result[Permission.location].toString());
-    ToastUtil.show(context,
-        'Permission.storage: ' + result[Permission.storage].toString());
+    if (DeviceUtil.isMobile()) {
+      Map<Permission, PermissionStatus> result =
+          await PermissionUtil.requestAll(
+              [Permission.location, Permission.storage]);
+      ToastUtil.show(context,
+          'Permission.location: ' + result[Permission.location].toString());
+      ToastUtil.show(context,
+          'Permission.storage: ' + result[Permission.storage].toString());
+    } else {
+      ToastUtil.show(context, 'Not support Desktop platform');
+    }
   }
 
   _httpTest() {
