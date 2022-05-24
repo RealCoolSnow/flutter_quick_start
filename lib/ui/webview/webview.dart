@@ -209,6 +209,6 @@ class WebViewMenu extends StatelessWidget {
   void _onCopyLink(WebViewController controller, BuildContext context) async {
     String url = (await controller.currentUrl())!;
     await ClipboardUtil.copy(url);
-    ToastUtil.show(I18n.of(context).text('copied'));
+    ToastUtil.show(context, I18n.of(context).text('copied'));
   }
 }

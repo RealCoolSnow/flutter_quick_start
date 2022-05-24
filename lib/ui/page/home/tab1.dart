@@ -99,7 +99,7 @@ class _Tab1State extends State<Tab1> {
   _showToast() {
     String now = TimeUtil.format(DateTime.now());
     logUtil.d(now);
-    ToastUtil.show(now);
+    ToastUtil.show(context, now);
   }
 
   _showLoading() {
@@ -112,12 +112,12 @@ class _Tab1State extends State<Tab1> {
   _showPreferences() {
     Pref.getString(PrefKey.launchTime, "").then((value) {
       String str = 'launch time: $value';
-      ToastUtil.show(str);
+      ToastUtil.show(context, str);
     });
   }
 
   _showDeviceInfo() {
-    DeviceUtil.getDeviceInfo().then((value) => ToastUtil.show(value));
+    DeviceUtil.getDeviceInfo().then((value) => ToastUtil.show(context, value));
   }
 
   _showWebView() {
@@ -131,9 +131,9 @@ class _Tab1State extends State<Tab1> {
   _permissionRequest() async {
     Map<Permission, PermissionStatus> result = await PermissionUtil.requestAll(
         [Permission.location, Permission.storage]);
-    ToastUtil.show(
+    ToastUtil.show(context,
         'Permission.location: ' + result[Permission.location].toString());
-    ToastUtil.show(
+    ToastUtil.show(context,
         'Permission.storage: ' + result[Permission.storage].toString());
   }
 
@@ -141,10 +141,10 @@ class _Tab1State extends State<Tab1> {
     LoadingUtil.show(context);
     HttpUtil().get('/', getParams: {"user": "coolsnow"}).then((value) {
       LoadingUtil.dismiss();
-      ToastUtil.show(value.toString());
+      ToastUtil.show(context, value.toString());
     }).catchError((error) {
       LoadingUtil.dismiss();
-      ToastUtil.show(error.msg);
+      ToastUtil.show(context, error.msg);
     });
   }
 }
