@@ -76,7 +76,8 @@ class HttpUtil {
   Future<dynamic> request(String path, String mode,
       {postData, Map<String, String>? getParams}) async {
     try {
-      path = FullUrl.make(path, getParams);
+      bool isExternalRequest = !path.contains(_baseOption.baseUrl);
+      path = isExternalRequest ? path : FullUrl.make(path, getParams);
       var resp;
       switch (mode) {
         case GET:
@@ -89,9 +90,12 @@ class HttpUtil {
           resp = await _dio.post(path, data: postData);
           break;
       }
-      return resp.data['code'] != 0
-          ? Future.error(HttpException(resp.data['code'], resp.data['msg']))
-          : resp.data['data'];
+      if (isExternalRequest)
+        return resp.data;
+      else
+        return resp.data['code'] != 0
+            ? Future.error(HttpException(resp.data['code'], resp.data['msg']))
+            : resp.data['data'];
     } on DioError catch (e) {
       int code = HttpError.UNKNOWN;
       if (e.response != null && e.response!.statusCode != null) {
