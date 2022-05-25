@@ -17,6 +17,7 @@ import 'package:flutter_quick_start/config/route/route_handlers.dart';
 class Routes {
   static const String home = "/";
   static const String about = "/about";
+  static const String hooks = "/hooks";
   static const String webview = "/webview";
   static void configureRoutes(FluroRouter router) {
     router.notFoundHandler = Handler(
@@ -25,6 +26,7 @@ class Routes {
     });
     router.define(home, handler: homeHandler);
     router.define(about, handler: aboutHandler);
+    router.define(hooks, handler: hooksHanlder);
     router.define(webview,
         handler: webviewHanlder, transitionType: TransitionType.fadeIn);
   }

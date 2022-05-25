@@ -53,7 +53,9 @@ dependencies:
   shimmer: ^2.0.0
   # bottom_navy_bar(Null safety) - https://pub.flutter-io.cn/packages/bottom_navy_bar
   bottom_navy_bar: ^6.0.0
-
+  # flutter_hooks - https://pub.flutter-io.cn/packages/flutter_hooks
+  flutter_hooks: ^0.18.4
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

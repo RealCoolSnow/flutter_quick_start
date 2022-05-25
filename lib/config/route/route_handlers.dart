@@ -10,6 +10,7 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quick_start/ui/page/about.dart';
 import 'package:flutter_quick_start/ui/page/home.dart';
+import 'package:flutter_quick_start/ui/page/hooks_demo.dart';
 import 'package:flutter_quick_start/ui/webview/webview.dart';
 
 /// home
@@ -22,6 +23,11 @@ var homeHandler = Handler(
 var aboutHandler = Handler(
     handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
   return AboutPage();
+});
+
+var hooksHanlder = Handler(
+    handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
+  return HooksDemoPage();
 });
 
 /// webview

@@ -50,6 +50,14 @@ class _Tab1State extends State<Tab1> {
             )),
         Container(
             margin: const EdgeInsets.only(top: 10.0),
+            child: ElevatedButton(
+                onPressed: () {
+                  Config.router.navigateTo(context, Routes.hooks,
+                      transition: TransitionType.inFromTop);
+                },
+                child: Text('Hooks'))),
+        Container(
+            margin: const EdgeInsets.only(top: 10.0),
             child: ElevatedButton(onPressed: _showToast, child: Text('Toast'))),
         Container(
             margin: const EdgeInsets.only(top: 10.0),
