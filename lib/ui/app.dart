@@ -1,13 +1,5 @@
-/*
- * @Description: 
- * @Author: CoolSnow (coolsnow2020@gmail.com)
- * @Date: 2020-09-09 10:38:59
- * @LastEditors: CoolSnow
- * @LastEditTime: 2020-09-21 10:44:48
- */
 import 'dart:ui';
 import 'dart:io';
-import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_quick_start/models/counter.dart';
@@ -17,7 +9,6 @@ import 'package:flutter_quick_start/ui/page/splash_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_quick_start/config/config.dart';
 import 'package:flutter_quick_start/config/pref_key.dart';
-import 'package:flutter_quick_start/config/route/routes.dart';
 import 'package:flutter_quick_start/locale/i18n.dart';
 import 'package:flutter_quick_start/locale/locale_util.dart';
 import 'package:flutter_quick_start/storage/Pref.dart';
@@ -31,10 +22,6 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   _AppState() {
-    //---router
-    final router = FluroRouter();
-    Routes.configureRoutes(router);
-    Config.router = router;
     //---shared preferences
     Pref.setString(PrefKey.launchTime, TimeUtil.format(DateTime.now()));
     //---logutil
@@ -69,7 +56,6 @@ class _AppState extends State<App> {
           GlobalWidgetsLocalizations.delegate,
         ],
         supportedLocales: localeUtil.supportedLocales(),
-        onGenerateRoute: Config.router.generator,
         home: _buildSplashScreen(),
       ),
     );

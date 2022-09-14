@@ -5,12 +5,11 @@
  * @LastEditors: CoolSnow
  * @LastEditTime: 2020-09-17 19:05:39
  */
-import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quick_start/config/config.dart';
 import 'package:flutter_quick_start/config/pref_key.dart';
-import 'package:flutter_quick_start/config/route/routes.dart';
 import 'package:flutter_quick_start/models/counter.dart';
+import 'package:flutter_quick_start/router.dart';
 import 'package:flutter_quick_start/service/http/http_util.dart';
 import 'package:flutter_quick_start/storage/Pref.dart';
 import 'package:flutter_quick_start/util/device_util.dart';
@@ -52,8 +51,7 @@ class _Tab1State extends State<Tab1> {
             margin: const EdgeInsets.only(top: 10.0),
             child: ElevatedButton(
                 onPressed: () {
-                  Config.router.navigateTo(context, Routes.hooks,
-                      transition: TransitionType.inFromTop);
+                  AppRouter.push(context, AppRouter.hookPage, null);
                 },
                 child: Text('Hooks'))),
         Container(
@@ -99,8 +97,7 @@ class _Tab1State extends State<Tab1> {
                     backgroundImage: AssetImage('assets/images/avatar.jpg'),
                     radius: 30)),
             onTap: () {
-              Config.router.navigateTo(context, Routes.about,
-                  transition: TransitionType.fadeIn);
+              AppRouter.push(context, AppRouter.aboutPage, null);
             }));
   }
 
@@ -131,9 +128,8 @@ class _Tab1State extends State<Tab1> {
   _showWebView() {
     final url = Uri.encodeComponent(
         'https://github.com/RealCoolSnow/flutter_easy'); //Uri.encodeComponent('assets/test.html');
-    const title = '';
-    Config.router
-        .navigateTo(_context, Routes.webview + "?url=$url&title=$title");
+    const title = 'RealCoolSnow';
+    AppRouter.push(context, url, {'title': title});
   }
 
   _permissionRequest() async {

@@ -6,11 +6,9 @@
  * @LastEditTime: 2020-09-11 16:04:30
  */
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
-import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_quick_start/config/config.dart';
-import 'package:flutter_quick_start/config/route/routes.dart';
 import 'package:flutter_quick_start/locale/i18n.dart';
+import 'package:flutter_quick_start/router.dart';
 import 'package:flutter_quick_start/ui/page/home/tab1.dart';
 import 'package:flutter_quick_start/ui/page/home/tab2.dart';
 import 'package:flutter_quick_start/ui/page/home/tab3.dart';
@@ -144,7 +142,6 @@ class _HomePageState extends State<HomePage> {
 
   void _showAbout() {
     _closeDrawer();
-    Config.router
-        .navigateTo(context, Routes.about, transition: TransitionType.fadeIn);
+    AppRouter.push(context, AppRouter.aboutPage, null);
   }
 }
