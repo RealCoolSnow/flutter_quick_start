@@ -32,6 +32,9 @@ class AppLocale {
   }
 
   ///
+  /// AppLocale.t('name')
+  /// AppLocale.t('name', args: ['Dart'])
+  /// AppLocale.t('name', namedArgs: {'lang': 'Dart'})
   static String t(
     String name, {
     List<String>? args,
