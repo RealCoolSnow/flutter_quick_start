@@ -61,7 +61,7 @@ class _AppState extends State<App> {
                 GlobalWidgetsLocalizations.delegate,
               ],
               supportedLocales: localeUtil.supportedLocales(),
-              home: Scaffold(body: SplashScreen()),
+              home: Scaffold(body: SplashScreen(seconds: 0)),
             );
           }),
     );
