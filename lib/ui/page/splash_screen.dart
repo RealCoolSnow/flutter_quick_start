@@ -1,135 +1,156 @@
 import 'dart:core';
 import 'dart:async';
+import 'package:flutter_quick_start/constant/asset_images.dart';
+import 'package:flutter_quick_start/constant/constant.dart';
+import 'package:flutter_quick_start/ui/page/container_page.dart';
+import 'package:flutter_quick_start/util/screen_utils.dart';
 import 'package:flutter/material.dart';
 
-///
-/// SplashScreen
-///
-/*
- * SplashScreen(
-        seconds: 3,
-        navigateAfterSeconds: HomePage(),
-        title: Text('flutter_easy',
-            style: TextStyle(
-                fontWeight: FontWeight.w700, fontSize: 20, color: Colors.pink)),
-        imageBackground: AssetImage('assets/images/splash.jpg'),
-        icon: AssetImage('assets/images/avatar.jpg'),
-        backgroundColor: Colors.white,
-        photoSize: 60.0,
-        loaderColor: Colors.white);
- * */
 class SplashScreen extends StatefulWidget {
-  final int seconds;
-  final Text title;
-  final Color backgroundColor;
-  final dynamic navigateAfterSeconds;
-  final double photoSize;
-  final dynamic onClick;
-  final Color loaderColor;
-  final ImageProvider? icon;
-  final Text loadingText;
-  final ImageProvider? imageBackground;
-  final Gradient? gradientBackground;
-  SplashScreen(
-      {this.loaderColor = Colors.white,
-      this.seconds = 5,
-      this.photoSize = 50,
-      this.onClick,
-      this.navigateAfterSeconds,
-      this.title = const Text(""),
-      this.backgroundColor = Colors.white,
-      this.icon,
-      this.loadingText = const Text(""),
-      this.imageBackground,
-      this.gradientBackground});
-
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  var container = ContainerPage();
+  bool showAd = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: <Widget>[
+        Offstage(
+          child: container,
+          offstage: showAd,
+        ),
+        Offstage(
+          child: Container(
+            color: Colors.white,
+            child: Stack(
+              children: <Widget>[
+                Align(
+                  alignment: Alignment(0.0, 0.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      CircleAvatar(
+                        radius: ScreenUtils.screenW(context) / 3,
+                        backgroundColor: Colors.white,
+                        backgroundImage: AssetImage(AssetImages.SPLASH),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20.0),
+                        child: Text(
+                          'Nice to meet you.',
+                          style: TextStyle(fontSize: 15.0, color: Colors.black),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                SafeArea(
+                    child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Align(
+                      alignment: Alignment(1.0, 0.0),
+                      child: Container(
+                        margin: const EdgeInsets.only(right: 30.0, top: 20.0),
+                        padding: const EdgeInsets.only(
+                            left: 10.0, right: 10.0, top: 2.0, bottom: 2.0),
+                        child: CountDownWidget(
+                          onCountDownFinishCallBack: (bool value) {
+                            if (value) {
+                              setState(() {
+                                showAd = false;
+                              });
+                            }
+                          },
+                        ),
+                        decoration: BoxDecoration(
+                            color: Color(0xffEDEDED),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(10.0))),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 40.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Image.asset(
+                            AssetImages.AVATAR,
+                            width: 50.0,
+                            height: 50.0,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10.0),
+                            child: Text(
+                              'Hello',
+                              style: TextStyle(
+                                  color: Colors.green,
+                                  fontSize: 30.0,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ))
+              ],
+            ),
+            width: ScreenUtils.screenW(context),
+            height: ScreenUtils.screenH(context),
+          ),
+          offstage: !showAd,
+        )
+      ],
+    );
+  }
+}
+
+class CountDownWidget extends StatefulWidget {
+  final onCountDownFinishCallBack;
+
+  CountDownWidget({Key? key, @required this.onCountDownFinishCallBack})
+      : super(key: key);
+
+  @override
+  _CountDownWidgetState createState() => _CountDownWidgetState();
+}
+
+class _CountDownWidgetState extends State<CountDownWidget> {
+  var _seconds = 6;
+  late Timer _timer;
+
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: widget.seconds), () {
-      if (widget.navigateAfterSeconds is String) {
-        // It's fairly safe to assume this is using the in-built material
-        // named route component
-        Navigator.of(context).pushReplacementNamed(widget.navigateAfterSeconds);
-      } else if (widget.navigateAfterSeconds is Widget) {
-        Navigator.of(context).pushReplacement(new MaterialPageRoute(
-            builder: (BuildContext context) => widget.navigateAfterSeconds));
-      } else if (widget.navigateAfterSeconds is Function) {
-        widget.navigateAfterSeconds();
-      } else {
-        throw new ArgumentError(
-            'widget.navigateAfterSeconds must either be a [String、Widget、Function]');
-      }
-    });
+    _startTimer();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: new InkWell(
-        onTap: widget.onClick,
-        child: new Stack(
-          fit: StackFit.expand,
-          children: <Widget>[
-            new Container(
-              decoration: new BoxDecoration(
-                image: widget.imageBackground == null
-                    ? null
-                    : new DecorationImage(
-                        fit: BoxFit.cover,
-                        image: widget.imageBackground!,
-                      ),
-                gradient: widget.gradientBackground,
-                color: widget.backgroundColor,
-              ),
-            ),
-            new Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                new Expanded(
-                  flex: 2,
-                  child: new Container(
-                      child: new Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      new CircleAvatar(
-                        backgroundColor: Colors.transparent,
-                        backgroundImage: widget.icon,
-                        radius: widget.photoSize,
-                      ),
-                      new Padding(
-                        padding: const EdgeInsets.only(top: 10.0),
-                      ),
-                      widget.title
-                    ],
-                  )),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      CircularProgressIndicator(
-                        valueColor: new AlwaysStoppedAnimation<Color>(
-                            widget.loaderColor),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                      ),
-                      widget.loadingText
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
+    return Text(
+      '$_seconds',
+      style: TextStyle(fontSize: 17.0),
     );
+  }
+
+  void _startTimer() {
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      setState(() {});
+      if (_seconds <= 1) {
+        widget.onCountDownFinishCallBack(true);
+        _cancelTimer();
+        return;
+      }
+      _seconds--;
+    });
+  }
+
+  void _cancelTimer() {
+    _timer?.cancel();
   }
 }

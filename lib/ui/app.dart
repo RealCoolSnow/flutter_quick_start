@@ -2,13 +2,12 @@ import 'dart:ui';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_quick_start/constant/constant.dart';
+import 'package:flutter_quick_start/constant/pref_key.dart';
 import 'package:flutter_quick_start/models/counter.dart';
 import 'package:flutter_quick_start/ui/app_theme.dart';
-import 'package:flutter_quick_start/ui/page/home.dart';
 import 'package:flutter_quick_start/ui/page/splash_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_quick_start/config/config.dart';
-import 'package:flutter_quick_start/config/pref_key.dart';
 import 'package:flutter_quick_start/locale/i18n.dart';
 import 'package:flutter_quick_start/locale/locale_util.dart';
 import 'package:flutter_quick_start/storage/Pref.dart';
@@ -25,7 +24,7 @@ class _AppState extends State<App> {
     //---shared preferences
     Pref.setString(PrefKey.launchTime, TimeUtil.format(DateTime.now()));
     //---logutil
-    logUtil.setEnabled(Config.debug);
+    logUtil.setEnabled(Constant.debug);
     logUtil.d("App created");
   }
   @override
@@ -44,7 +43,7 @@ class _AppState extends State<App> {
         ChangeNotifierProvider(create: (context) => Counter()),
       ],
       child: MaterialApp(
-        title: Config.app,
+        title: Constant.app,
         debugShowCheckedModeBanner: false,
         theme: new ThemeData(
           primarySwatch: AppTheme.primary,
@@ -56,22 +55,8 @@ class _AppState extends State<App> {
           GlobalWidgetsLocalizations.delegate,
         ],
         supportedLocales: localeUtil.supportedLocales(),
-        home: _buildSplashScreen(),
+        home: Scaffold(body: SplashScreen()),
       ),
     );
-  }
-
-  _buildSplashScreen() {
-    return SplashScreen(
-        seconds: 3,
-        navigateAfterSeconds: HomePage(),
-        title: Text('flutter_easy',
-            style: TextStyle(
-                fontWeight: FontWeight.w700, fontSize: 20, color: Colors.pink)),
-        imageBackground: AssetImage('assets/images/splash.jpg'),
-        icon: AssetImage('assets/images/avatar.jpg'),
-        backgroundColor: Colors.white,
-        photoSize: 60.0,
-        loaderColor: Colors.white);
   }
 }

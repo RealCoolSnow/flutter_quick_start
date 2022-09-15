@@ -1,11 +1,9 @@
 import 'package:flutter_quick_start/ui/page/about.dart';
-import 'package:flutter_quick_start/ui/page/home.dart';
 import 'package:flutter_quick_start/ui/page/hooks_demo.dart';
 import 'package:flutter_quick_start/ui/webview/webview.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
-  static const homePage = 'app://';
   static const aboutPage = 'app://AboutPage';
   static const hookPage = 'app://HookPage';
 
@@ -15,8 +13,6 @@ class AppRouter {
           url: url, title: params['title'] == null ? "" : params['title']);
     } else {
       switch (url) {
-        case homePage:
-          return HomePage();
         case aboutPage:
           return AboutPage();
         case hookPage:

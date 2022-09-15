@@ -5,7 +5,7 @@
  * @LastEditors: CoolSnow
  * @LastEditTime: 2020-09-10 11:58:23
  */
-import 'package:flutter_quick_start/config/config.dart';
+import 'package:flutter_quick_start/constant/constant.dart';
 import 'package:flutter_quick_start/locale/locale_util.dart';
 import 'package:flutter_quick_start/util/device_util.dart';
 import 'package:flutter_quick_start/util/time_util.dart';
@@ -18,7 +18,7 @@ class FullUrl {
     } else {
       u += ('?platform=' + DeviceUtil.getName());
     }
-    u += ('&app=' + Config.app);
+    u += ('&app=' + Constant.app);
     u += ('&lang=' + localeUtil.getLanguageCode());
     //u += ('&uid=' + Config.uid);
     if (params != null && params.length > 0) {

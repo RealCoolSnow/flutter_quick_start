@@ -6,8 +6,7 @@
  * @LastEditTime: 2020-09-17 19:05:39
  */
 import 'package:flutter/material.dart';
-import 'package:flutter_quick_start/config/config.dart';
-import 'package:flutter_quick_start/config/pref_key.dart';
+import 'package:flutter_quick_start/constant/pref_key.dart';
 import 'package:flutter_quick_start/models/counter.dart';
 import 'package:flutter_quick_start/router.dart';
 import 'package:flutter_quick_start/service/http/http_util.dart';

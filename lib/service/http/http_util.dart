@@ -6,7 +6,7 @@
  * @LastEditTime: 2020-09-10 14:25:03
  */
 import 'package:dio/dio.dart';
-import 'package:flutter_quick_start/config/config.dart';
+import 'package:flutter_quick_start/constant/constant.dart';
 import 'package:flutter_quick_start/service/http/util/full_url.dart';
 import 'package:flutter_quick_start/service/http/http_config.dart';
 import 'package:flutter_quick_start/service/http/util/http_error.dart';
@@ -46,7 +46,7 @@ class HttpUtil {
         receiveTimeout: HttpConfig.receiveTimeout,
         baseUrl: HttpConfig.baseUrl);
     _dio = new Dio(_baseOption);
-    if (Config.debug) {
+    if (Constant.debug) {
       addInterceptor(LogInterceptor());
     }
     addInterceptor(HeaderInterceptor());
