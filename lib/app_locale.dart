@@ -30,4 +30,12 @@ class AppLocale {
     }
     currentLocale = locale;
   }
+
+  ///
+  static String t(
+    String name, {
+    List<String>? args,
+    Map<String, String>? namedArgs,
+  }) =>
+      name.tr(args: args, namedArgs: namedArgs);
 }

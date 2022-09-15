@@ -5,9 +5,9 @@
  * @LastEditors: CoolSnow
  * @LastEditTime: 2020-09-14 11:00:01
  */
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_quick_start/app_locale.dart';
 
 ///
 ///
@@ -19,7 +19,7 @@ class LoadingUtil {
   static show(
     BuildContext context,
   ) {
-    EasyLoading.show(status: "loading".tr());
+    EasyLoading.show(status: AppLocale.t('loading'));
   }
 
   static showMessage(String msg) {

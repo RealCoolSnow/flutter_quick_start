@@ -5,7 +5,6 @@
  * @LastEditors: CoolSnow
  * @LastEditTime: 2020-09-17 19:05:39
  */
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quick_start/app_locale.dart';
 import 'package:flutter_quick_start/constant/pref_key.dart';
@@ -59,7 +58,9 @@ class _Tab1State extends State<Tab1> {
                         : AppLocaleSupported.enUS);
               },
               child: Consumer<Counter>(
-                builder: (context, counter, child) => Text('Change Language'),
+                builder: (context, counter, child) => Text(AppLocale.t(
+                    'switch_language',
+                    args: [AppLocale.currentLocale.name])),
               ),
             )),
         Container(
@@ -75,7 +76,7 @@ class _Tab1State extends State<Tab1> {
         Container(
             margin: const EdgeInsets.only(top: 10.0),
             child: ElevatedButton(
-                onPressed: _showLoading, child: Text('loading'.tr()))),
+                onPressed: _showLoading, child: Text(AppLocale.t('loading')))),
         Container(
             margin: const EdgeInsets.only(top: 10.0),
             child: ElevatedButton(
