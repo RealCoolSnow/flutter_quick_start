@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_quick_start/constant/asset_images.dart';
 import 'package:flutter_quick_start/ui/app_theme.dart';
-import 'package:flutter_quick_start/ui/page/home/tab1.dart';
-import 'package:flutter_quick_start/ui/page/home/tab2.dart';
-import 'package:flutter_quick_start/ui/page/home/tab3.dart';
+import 'package:flutter_quick_start/ui/page/tabs/tab1.dart';
+import 'package:flutter_quick_start/ui/page/tabs/tab2.dart';
+import 'package:flutter_quick_start/ui/page/tabs/tab3.dart';
 import 'package:flutter/material.dart';
 
 class ContainerPage extends StatefulWidget {
