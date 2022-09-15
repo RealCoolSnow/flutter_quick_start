@@ -5,8 +5,8 @@
  * @LastEditors: CoolSnow
  * @LastEditTime: 2020-09-14 11:00:01
  */
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_quick_start/locale/i18n.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 ///
@@ -19,7 +19,7 @@ class LoadingUtil {
   static show(
     BuildContext context,
   ) {
-    EasyLoading.show(status: I18n.of(context).text("loading"));
+    EasyLoading.show(status: "loading".tr());
   }
 
   static showMessage(String msg) {

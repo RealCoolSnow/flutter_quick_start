@@ -1,5 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_quick_start/constant/asset_images.dart';
-import 'package:flutter_quick_start/locale/i18n.dart';
 import 'package:flutter_quick_start/ui/app_theme.dart';
 import 'package:flutter_quick_start/ui/page/home/tab1.dart';
 import 'package:flutter_quick_start/ui/page/home/tab2.dart';
@@ -22,10 +22,12 @@ class _ContainerPageState extends State<ContainerPage> {
   final defaultItemColor = Color.fromARGB(255, 125, 125, 125);
   List<Widget> pages = [Tab1(), Tab2(), Tab3()];
   final itemNames = [
-    _TabItem('Home', AssetImages.TAB_HOME_ACTIVE, AssetImages.TAB_HOME_NORMAL),
+    _TabItem('tab.home'.tr(), AssetImages.TAB_HOME_ACTIVE,
+        AssetImages.TAB_HOME_NORMAL),
+    _TabItem('tab.circle'.tr(), AssetImages.TAB_CIRCLE_ACTIVE,
+        AssetImages.TAB_CIRCLE_NORMAL),
     _TabItem(
-        'Circle', AssetImages.TAB_CIRCLE_ACTIVE, AssetImages.TAB_CIRCLE_NORMAL),
-    _TabItem('Me', AssetImages.TAB_ME_ACTIVE, AssetImages.TAB_ME_NORMAL)
+        'tab.me'.tr(), AssetImages.TAB_ME_ACTIVE, AssetImages.TAB_ME_NORMAL)
   ];
   List<BottomNavigationBarItem> itemList = [];
   int _selectIndex = 0;
@@ -99,7 +101,7 @@ class _ContainerPageState extends State<ContainerPage> {
 
   AppBar _buildAppBar() {
     return AppBar(
-      title: Text(I18n.of(context).text('app_name')),
+      title: Text('app_name'.tr()),
       actions: <Widget>[],
       // bottom: _buildTabBar(),
     );

@@ -10,9 +10,9 @@ import 'dart:convert';
 import 'dart:core';
 
 import 'package:back_button_interceptor/back_button_interceptor.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_quick_start/locale/i18n.dart';
 import 'package:flutter_quick_start/ui/webview/channel/flutter_channel.dart';
 import 'package:flutter_quick_start/util/clipboard_util.dart';
 import 'package:flutter_quick_start/util/log_util.dart';
@@ -190,11 +190,11 @@ class WebViewMenu extends StatelessWidget {
           itemBuilder: (BuildContext context) => <PopupMenuItem<MenuOptions>>[
             PopupMenuItem<MenuOptions>(
               value: MenuOptions.refresh,
-              child: Text(I18n.of(context).text('refresh')),
+              child: Text('refresh'.tr()),
             ),
             PopupMenuItem<MenuOptions>(
               value: MenuOptions.copyLink,
-              child: Text(I18n.of(context).text('copy_link')),
+              child: Text('copy_link'.tr()),
             ),
           ],
         );
@@ -209,6 +209,6 @@ class WebViewMenu extends StatelessWidget {
   void _onCopyLink(WebViewController controller, BuildContext context) async {
     String url = (await controller.currentUrl())!;
     await ClipboardUtil.copy(url);
-    ToastUtil.show(context, I18n.of(context).text('copied'));
+    ToastUtil.show(context, 'copied'.tr());
   }
 }

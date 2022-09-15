@@ -5,8 +5,8 @@
  * @LastEditors: CoolSnow
  * @LastEditTime: 2020-09-16 18:37:21
  */
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_quick_start/locale/i18n.dart';
 import 'package:flutter_quick_start/ui/widget/draggable_card.dart';
 
 class AboutPage extends StatefulWidget {
@@ -18,7 +18,7 @@ class _AboutPageState extends State<AboutPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
-          title: new Text(I18n.of(context).text("about")),
+          title: new Text('about'.tr()),
         ),
         body: Container(
           alignment: Alignment.topCenter,

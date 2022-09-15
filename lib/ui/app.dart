@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'dart:io';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_quick_start/constant/constant.dart';
@@ -8,8 +9,6 @@ import 'package:flutter_quick_start/models/counter.dart';
 import 'package:flutter_quick_start/ui/app_theme.dart';
 import 'package:flutter_quick_start/ui/page/splash_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_quick_start/locale/i18n.dart';
-import 'package:flutter_quick_start/locale/locale_util.dart';
 import 'package:flutter_quick_start/storage/Pref.dart';
 import 'package:flutter_quick_start/util/log_util.dart';
 import 'package:flutter_quick_start/util/time_util.dart';
@@ -17,14 +16,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class App extends StatefulWidget {
-  _AppState createState() => new _AppState();
+  _AppState createState() => _AppState();
 }
 
 class _AppState extends State<App> {
   _AppState() {
-    //---shared preferences
-    Pref.setString(PrefKey.launchTime, TimeUtil.format(DateTime.now()));
-    //---logutil
     logUtil.setEnabled(Constant.debug);
     logUtil.d("App created");
   }
@@ -47,7 +43,7 @@ class _AppState extends State<App> {
           designSize: const Size(360, 690),
           minTextAdapt: true,
           splitScreenMode: true,
-          builder: (context, child) {
+          builder: (cxt, child) {
             return MaterialApp(
               title: Constant.app,
               debugShowCheckedModeBanner: false,
@@ -55,12 +51,9 @@ class _AppState extends State<App> {
                 primarySwatch: AppTheme.primary,
                 splashColor: AppTheme.splash,
               ),
-              localizationsDelegates: [
-                const I18nDelegate(),
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-              ],
-              supportedLocales: localeUtil.supportedLocales(),
+              localizationsDelegates: context.localizationDelegates,
+              supportedLocales: context.supportedLocales,
+              locale: context.locale,
               home: Scaffold(body: SplashScreen(seconds: 0)),
             );
           }),

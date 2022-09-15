@@ -5,7 +5,9 @@
  * @LastEditors: CoolSnow
  * @LastEditTime: 2020-09-17 19:05:39
  */
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_quick_start/app_locale.dart';
 import 'package:flutter_quick_start/constant/pref_key.dart';
 import 'package:flutter_quick_start/models/counter.dart';
 import 'package:flutter_quick_start/router.dart';
@@ -34,16 +36,30 @@ class _Tab1State extends State<Tab1> {
         child: Container(
             child: Column(
       children: [
+        // Container(
+        //     margin: const EdgeInsets.only(top: 10.0),
+        //     child: ElevatedButton(
+        //       onPressed: () {
+        //         var counter = context.read<Counter>();
+        //         counter.increment();
+        //       },
+        //       child: Consumer<Counter>(
+        //         builder: (context, counter, child) =>
+        //             Text('Counter: ${counter.value}'),
+        //       ),
+        //     )),
         Container(
             margin: const EdgeInsets.only(top: 10.0),
             child: ElevatedButton(
               onPressed: () {
-                var counter = context.read<Counter>();
-                counter.increment();
+                AppLocale.switchLocale(
+                    context,
+                    AppLocale.currentLocale == AppLocaleSupported.enUS
+                        ? AppLocaleSupported.zhCN
+                        : AppLocaleSupported.enUS);
               },
               child: Consumer<Counter>(
-                builder: (context, counter, child) =>
-                    Text('Counter: ${counter.value}'),
+                builder: (context, counter, child) => Text('Change Language'),
               ),
             )),
         Container(
@@ -59,7 +75,7 @@ class _Tab1State extends State<Tab1> {
         Container(
             margin: const EdgeInsets.only(top: 10.0),
             child: ElevatedButton(
-                onPressed: _showLoading, child: Text('Loading'))),
+                onPressed: _showLoading, child: Text('loading'.tr()))),
         Container(
             margin: const EdgeInsets.only(top: 10.0),
             child: ElevatedButton(

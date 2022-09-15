@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter_quick_start/app_locale.dart';
 import 'package:flutter/widgets.dart';
 
 const bool inProduction = bool.fromEnvironment("dart.vm.product");
@@ -14,7 +15,7 @@ class AppSentry {
       }
     };
     runZonedGuarded<Future<Null>>(() async {
-      runApp(appMain);
+      runApp(AppLocale.wrapApp(appMain));
     }, (error, stackTrace) async {
       _reportError(error, stackTrace);
     });
