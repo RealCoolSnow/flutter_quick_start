@@ -13,6 +13,7 @@ import 'package:flutter_quick_start/locale/locale_util.dart';
 import 'package:flutter_quick_start/storage/Pref.dart';
 import 'package:flutter_quick_start/util/log_util.dart';
 import 'package:flutter_quick_start/util/time_util.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class App extends StatefulWidget {
@@ -42,21 +43,27 @@ class _AppState extends State<App> {
       providers: [
         ChangeNotifierProvider(create: (context) => Counter()),
       ],
-      child: MaterialApp(
-        title: Constant.app,
-        debugShowCheckedModeBanner: false,
-        theme: new ThemeData(
-          primarySwatch: AppTheme.primary,
-          splashColor: AppTheme.splash,
-        ),
-        localizationsDelegates: [
-          const I18nDelegate(),
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-        ],
-        supportedLocales: localeUtil.supportedLocales(),
-        home: Scaffold(body: SplashScreen()),
-      ),
+      child: ScreenUtilInit(
+          designSize: const Size(360, 690),
+          minTextAdapt: true,
+          splitScreenMode: true,
+          builder: (context, child) {
+            return MaterialApp(
+              title: Constant.app,
+              debugShowCheckedModeBanner: false,
+              theme: new ThemeData(
+                primarySwatch: AppTheme.primary,
+                splashColor: AppTheme.splash,
+              ),
+              localizationsDelegates: [
+                const I18nDelegate(),
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+              ],
+              supportedLocales: localeUtil.supportedLocales(),
+              home: Scaffold(body: SplashScreen()),
+            );
+          }),
     );
   }
 }

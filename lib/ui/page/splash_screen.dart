@@ -1,10 +1,9 @@
 import 'dart:core';
 import 'dart:async';
 import 'package:flutter_quick_start/constant/asset_images.dart';
-import 'package:flutter_quick_start/constant/constant.dart';
 import 'package:flutter_quick_start/ui/page/container_page.dart';
-import 'package:flutter_quick_start/util/screen_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -34,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       CircleAvatar(
-                        radius: ScreenUtils.screenW(context) / 3,
+                        radius: 120.w,
                         backgroundColor: Colors.white,
                         backgroundImage: AssetImage(AssetImages.SPLASH),
                       ),
@@ -100,8 +99,8 @@ class _SplashScreenState extends State<SplashScreen> {
                 ))
               ],
             ),
-            width: ScreenUtils.screenW(context),
-            height: ScreenUtils.screenH(context),
+            width: ScreenUtil().screenWidth,
+            height: ScreenUtil().screenHeight,
           ),
           offstage: !showAd,
         )

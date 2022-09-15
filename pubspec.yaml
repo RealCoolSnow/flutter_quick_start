@@ -51,7 +51,8 @@ dependencies:
   shimmer: ^2.0.0
   # flutter_hooks - https://pub.flutter-io.cn/packages/flutter_hooks
   flutter_hooks: ^0.18.4
-  
+  # flutter_screenutil - https://pub.dev/packages/flutter_screenutil
+  flutter_screenutil: ^5.5.4
 dev_dependencies:
   flutter_test:
     sdk: flutter
