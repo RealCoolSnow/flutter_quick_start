@@ -1,9 +1,10 @@
 import 'dart:core';
 import 'dart:async';
 import 'package:flutter_quick_start/constant/asset_images.dart';
-import 'package:flutter_quick_start/ui/page/container_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'index_page.dart';
 
 class SplashScreen extends StatefulWidget {
   final int seconds;
@@ -13,7 +14,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  var container = ContainerPage();
+  var container = IndexPage();
   bool showAd = true;
 
   @override
