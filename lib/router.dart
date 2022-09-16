@@ -7,12 +7,12 @@ class AppRouter {
   static const aboutPage = 'app://AboutPage';
   static const hookPage = 'app://HookPage';
 
-  Widget _getPage(String url, dynamic params) {
-    if (url.startsWith('http')) {
+  Widget _getPage(String path, Map<String, dynamic> params) {
+    if (path.startsWith('http')) {
       return WebViewPage(
-          url: url, title: params['title'] == null ? "" : params['title']);
+          url: path, title: params['title'] == null ? "" : params['title']);
     } else {
-      switch (url) {
+      switch (path) {
         case aboutPage:
           return AboutPage();
         case hookPage:
@@ -24,15 +24,15 @@ class AppRouter {
     );
   }
 
-  AppRouter.pushNoParams(BuildContext context, String url) {
+  AppRouter.push(BuildContext context, String path,
+      {Map<String, dynamic> params = const {}}) {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return _getPage(url, null);
+      return _getPage(path, params);
     }));
   }
-
-  AppRouter.push(BuildContext context, String url, dynamic params) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return _getPage(url, params);
-    }));
+  AppRouter.redirect(BuildContext context, String path,
+      {Map<String, dynamic> params = const {}}) {
+    Navigator.pop(context);
+    AppRouter.push(context, path, params: params);
   }
 }

@@ -67,7 +67,7 @@ class _Tab1State extends State<Tab1> {
             margin: const EdgeInsets.only(top: 10.0),
             child: ElevatedButton(
                 onPressed: () {
-                  AppRouter.push(context, AppRouter.hookPage, null);
+                  AppRouter.push(context, AppRouter.hookPage);
                 },
                 child: Text('Hooks'))),
         Container(
@@ -113,7 +113,7 @@ class _Tab1State extends State<Tab1> {
                     backgroundImage: AssetImage('assets/images/avatar.jpg'),
                     radius: 30)),
             onTap: () {
-              AppRouter.push(context, AppRouter.aboutPage, null);
+              AppRouter.push(context, AppRouter.aboutPage);
             }));
   }
 
@@ -145,7 +145,7 @@ class _Tab1State extends State<Tab1> {
     final url = Uri.encodeComponent(
         'https://github.com/RealCoolSnow/flutter_easy'); //Uri.encodeComponent('assets/test.html');
     const title = 'RealCoolSnow';
-    AppRouter.push(context, url, {'title': title});
+    AppRouter.push(context, url, params: {'title': title});
   }
 
   _permissionRequest() async {
