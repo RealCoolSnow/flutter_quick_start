@@ -9,20 +9,17 @@ class SplashScreen extends StatefulWidget {
   final int seconds;
   const SplashScreen({super.key, required this.seconds});
   @override
-  _SplashScreenState createState() => _SplashScreenState(seconds);
+  _SplashScreenState createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
   var container = ContainerPage();
   bool showAd = true;
-  final int seconds;
-
-  _SplashScreenState(this.seconds);
 
   @override
   void initState() {
     super.initState();
-    if (seconds <= 0) {
+    if (widget.seconds <= 0) {
       setState(() {
         showAd = false;
       });
@@ -80,7 +77,7 @@ class _SplashScreenState extends State<SplashScreen> {
                                 });
                               }
                             },
-                            seconds: this.seconds),
+                            seconds: widget.seconds),
                         decoration: BoxDecoration(
                             color: Color(0xffEDEDED),
                             borderRadius:
@@ -126,20 +123,19 @@ class _SplashScreenState extends State<SplashScreen> {
 
 class CountDownWidget extends StatefulWidget {
   final onCountDownFinishCallBack;
-  final seconds;
+  var seconds;
   CountDownWidget(
       {Key? key, @required this.onCountDownFinishCallBack, this.seconds})
       : super(key: key);
 
   @override
-  _CountDownWidgetState createState() => _CountDownWidgetState(seconds);
+  _CountDownWidgetState createState() => _CountDownWidgetState();
 }
 
 class _CountDownWidgetState extends State<CountDownWidget> {
-  var seconds;
   late Timer _timer;
 
-  _CountDownWidgetState(this.seconds);
+  _CountDownWidgetState();
 
   @override
   void initState() {
@@ -150,7 +146,7 @@ class _CountDownWidgetState extends State<CountDownWidget> {
   @override
   Widget build(BuildContext context) {
     return Text(
-      '$seconds',
+      '${widget.seconds}',
       style: TextStyle(fontSize: 17.0),
     );
   }
@@ -158,12 +154,12 @@ class _CountDownWidgetState extends State<CountDownWidget> {
   void _startTimer() {
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
       setState(() {});
-      if (seconds <= 1) {
+      if (widget.seconds <= 1) {
         widget.onCountDownFinishCallBack(true);
         _cancelTimer();
         return;
       }
-      seconds--;
+      widget.seconds--;
     });
   }
 
