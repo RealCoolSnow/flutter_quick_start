@@ -55,6 +55,8 @@ dependencies:
   flutter_screenutil: ^5.5.4
   # https://pub.dev/packages/easy_localization
   easy_localization: ^3.0.1
+  # https://pub.flutter-io.cn/packages/get_it
+  get_it: ^7.2.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -74,6 +76,7 @@ flutter:
   assets:
     - assets/locale/
     - assets/images/
+    - assets/images/tab/
     - assets/test.html
 
   fonts:

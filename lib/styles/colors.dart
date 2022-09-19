@@ -3,9 +3,9 @@ import 'package:flutter_quick_start/logic/common/color_utils.dart';
 
 class AppColors {
   /// Common
-  final Color accent1 = Color(0xFFE4935D);
-  final Color accent2 = Color(0xFFBEABA1);
-  final Color offWhite = Color(0xFFF8ECE5);
+  final Color accent1 = Color(0xFF10B981);
+  final Color accent2 = Colors.white;
+  final Color offWhite = Colors.white;
   final Color caption = const Color(0xFF7D7873);
   final Color body = const Color(0xFF514F4D);
   final Color greyStrong = const Color(0xFF272625);

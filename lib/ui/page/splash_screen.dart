@@ -1,10 +1,9 @@
 import 'dart:core';
 import 'dart:async';
-import 'package:flutter_quick_start/constant/asset_images.dart';
+import 'package:flutter_quick_start/assets.dart';
+import 'package:flutter_quick_start/ui/page/index_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'index_page.dart';
 
 class SplashScreen extends StatefulWidget {
   final int seconds;
@@ -48,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       CircleAvatar(
                         radius: 120.w,
                         backgroundColor: Colors.white,
-                        backgroundImage: AssetImage(AssetImages.SPLASH),
+                        backgroundImage: AssetImage(ImageFiles.splash),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 20.0),
@@ -91,7 +90,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Image.asset(
-                            AssetImages.AVATAR,
+                            ImageFiles.avatar,
                             width: 50.0,
                             height: 50.0,
                           ),

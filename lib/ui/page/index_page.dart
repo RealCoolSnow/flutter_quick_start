@@ -1,9 +1,8 @@
-import 'package:flutter_quick_start/app_locale.dart';
-import 'package:flutter_quick_start/constant/asset_images.dart';
+import 'package:flutter_quick_start/common_libs.dart';
+import 'package:flutter_quick_start/main.dart';
 import 'package:flutter_quick_start/ui/page/tabs/tab1.dart';
 import 'package:flutter_quick_start/ui/page/tabs/tab2.dart';
 import 'package:flutter_quick_start/ui/page/tabs/tab3.dart';
-import 'package:flutter/material.dart';
 
 class IndexPage extends StatefulWidget {
   @override
@@ -30,16 +29,16 @@ class _IndexPageState extends State<IndexPage> {
   void initData() {
     tabIcons = [
       [
-        loadTabIcon(AssetImages.TAB_HOME_NORMAL),
-        loadTabIcon(AssetImages.TAB_HOME_ACTIVE)
+        loadTabIcon(ImageFiles.tab_home_normal),
+        loadTabIcon(ImageFiles.tab_home_active)
       ],
       [
-        loadTabIcon(AssetImages.TAB_CIRCLE_NORMAL),
-        loadTabIcon(AssetImages.TAB_CIRCLE_ACTIVE)
+        loadTabIcon(ImageFiles.tab_circle_normal),
+        loadTabIcon(ImageFiles.tab_circle_active)
       ],
       [
-        loadTabIcon(AssetImages.TAB_ME_NORMAL),
-        loadTabIcon(AssetImages.TAB_ME_ACTIVE),
+        loadTabIcon(ImageFiles.tab_me_normal),
+        loadTabIcon(ImageFiles.tab_me_active),
       ]
     ];
   }
@@ -55,6 +54,7 @@ class _IndexPageState extends State<IndexPage> {
   void initState() {
     super.initState();
     initData();
+    userLogic.doLoginIfUnLogin();
   }
 
   @override
