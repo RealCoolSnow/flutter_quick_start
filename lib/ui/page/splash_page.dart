@@ -1,19 +1,19 @@
 import 'dart:core';
 import 'dart:async';
 import 'package:flutter_quick_start/assets.dart';
-import 'package:flutter_quick_start/ui/page/index_page.dart';
+import 'package:flutter_quick_start/common_libs.dart';
+import 'package:flutter_quick_start/ui/page/home_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SplashScreen extends StatefulWidget {
+class SplashPage extends StatefulWidget {
   final int seconds;
-  const SplashScreen({super.key, required this.seconds});
+  const SplashPage({super.key, required this.seconds});
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  _SplashPageState createState() => _SplashPageState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
-  var container = IndexPage();
+class _SplashPageState extends State<SplashPage> {
+  var container = HomePage();
   bool showAd = true;
 
   @override
@@ -31,10 +31,6 @@ class _SplashScreenState extends State<SplashScreen> {
     return Stack(
       children: <Widget>[
         Offstage(
-          child: container,
-          offstage: showAd,
-        ),
-        Offstage(
           child: Container(
             color: Colors.white,
             child: Stack(
@@ -45,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       CircleAvatar(
-                        radius: 120.w,
+                        radius: 120,
                         backgroundColor: Colors.white,
                         backgroundImage: AssetImage(ImageFiles.splash),
                       ),
@@ -74,6 +70,7 @@ class _SplashScreenState extends State<SplashScreen> {
                               if (value) {
                                 setState(() {
                                   showAd = false;
+                                  appRouter.go(PagePaths.home);
                                 });
                               }
                             },
@@ -111,8 +108,8 @@ class _SplashScreenState extends State<SplashScreen> {
                 ))
               ],
             ),
-            width: ScreenUtil().screenWidth,
-            height: ScreenUtil().screenHeight,
+            // width: ScreenUtil().screenWidth,
+            // height: ScreenUtil().screenHeight,
           ),
           offstage: !showAd,
         )

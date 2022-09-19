@@ -4,10 +4,10 @@ import 'package:flutter_quick_start/ui/page/tabs/tab1.dart';
 import 'package:flutter_quick_start/ui/page/tabs/tab2.dart';
 import 'package:flutter_quick_start/ui/page/tabs/tab3.dart';
 
-class IndexPage extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _IndexPageState();
+    return _HomePageState();
   }
 }
 
@@ -16,7 +16,7 @@ class _TabItem {
   _TabItem(this.name, this.activeIcon, this.normalIcon);
 }
 
-class _IndexPageState extends State<IndexPage> {
+class _HomePageState extends State<HomePage> {
   int _tabIndex = 0;
   var tabIcons;
   final List<Widget> tabBodies = [Tab1(), Tab2(), Tab3()];
@@ -67,42 +67,41 @@ class _IndexPageState extends State<IndexPage> {
       BottomNavigationBarItem(
           icon: getTabIcon(2), label: AppLocale.t(tabNames[2])),
     ];
-    return SafeArea(
-      child: WillPopScope(
-        child: Scaffold(
-          backgroundColor: Color.fromRGBO(244, 245, 245, 1.0),
-          bottomNavigationBar: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            currentIndex: _tabIndex,
-            items: bottomTabs,
-            onTap: (index) async {
-              _tabIndex = index;
+    return WillPopScope(
+      child: Scaffold(
+        backgroundColor: Color.fromRGBO(244, 245, 245, 1.0),
+        appBar: _buildAppBar(),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          currentIndex: _tabIndex,
+          items: bottomTabs,
+          onTap: (index) async {
+            _tabIndex = index;
 
-              setState(() {
-                //  _tabIndex = index;
-                //  currentPage = tabBodies[_tabIndex];
-              });
-            },
-          ),
-          body: IndexedStack(
-            index: _tabIndex,
-            children: tabBodies,
-          ),
+            setState(() {
+              //  _tabIndex = index;
+              //  currentPage = tabBodies[_tabIndex];
+            });
+          },
         ),
-        onWillPop: () {
-          // // 点击返回键的操作
-          // if (lastPopTime == null ||
-          //     DateTime.now().difference(lastPopTime) > Duration(seconds: 2)) {
-          //   lastPopTime = DateTime.now();
-          //   ToastUtil.show('再按一次退出应用');
-          // } else {
-          //   lastPopTime = DateTime.now();
-          //   // 退出app
-          //   SystemChannels.platform.invokeMethod('SystemNavigator.pop');
-          // }
-          return Future(() => true);
-        },
+        body: IndexedStack(
+          index: _tabIndex,
+          children: tabBodies,
+        ),
       ),
+      onWillPop: () {
+        // // 点击返回键的操作
+        // if (lastPopTime == null ||
+        //     DateTime.now().difference(lastPopTime) > Duration(seconds: 2)) {
+        //   lastPopTime = DateTime.now();
+        //   ToastUtil.show('再按一次退出应用');
+        // } else {
+        //   lastPopTime = DateTime.now();
+        //   // 退出app
+        //   SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+        // }
+        return Future(() => true);
+      },
     );
   }
 

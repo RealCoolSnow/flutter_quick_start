@@ -6,21 +6,28 @@ class SettingsLogic with ThrottledSaveLoadMixin {
   @override
   String get fileName => 'settings.dat';
 
-  late final hasLogged = ValueNotifier<bool>(false)..addListener(scheduleSave);
+  late final hasCompletedOnboarding = ValueNotifier<bool>(false)
+    ..addListener(scheduleSave);
   late final currentLocale = ValueNotifier<String?>(null)
     ..addListener(scheduleSave);
+  late final hasLogged = ValueNotifier<bool>(false)..addListener(scheduleSave);
 
   final bool useBlurs = defaultTargetPlatform != TargetPlatform.android;
 
   @override
   void copyFromJson(Map<String, dynamic> value) {
+    hasCompletedOnboarding.value = value['hasCompletedOnboarding'] ?? false;
     currentLocale.value = value['currentLocale'] ?? 'en';
     hasLogged.value = value['hasLogged'] ?? false;
   }
 
   @override
   Map<String, dynamic> toJson() {
-    return {'currentLocale': currentLocale.value, 'hasLogged': hasLogged.value};
+    return {
+      'hasCompletedOnboarding': hasCompletedOnboarding.value,
+      'currentLocale': currentLocale.value,
+      'hasLogged': hasLogged.value
+    };
   }
 
   Future<void> changeLocale(Locale value) async {

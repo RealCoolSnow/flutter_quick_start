@@ -1,9 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_quick_start/util/log_util.dart';
-import 'package:flutter_quick_start/util/toast_util.dart';
+import 'package:flutter_quick_start/common_libs.dart';
 
-class HooksDemoPage extends HookWidget {
+class HooksPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final counter = useState(0);

@@ -40,15 +40,15 @@ class AppLogic {
     // await collectiblesLogic.load();
 
     // // Flag bootStrap as complete
-    // isBootstrapComplete = true;
+    isBootstrapComplete = true;
 
     // // Load initial view (replace empty initial view which is covered by a native splash screen)
-    // bool showIntro = settingsLogic.hasCompletedOnboarding.value == false;
-    // if (showIntro) {
-    //   appRouter.go(ScreenPaths.intro);
-    // } else {
-    //   appRouter.go(ScreenPaths.home);
-    // }
+    bool showIntro = settingsLogic.hasCompletedOnboarding.value == false;
+    if (showIntro) {
+      appRouter.go(PagePaths.intro);
+    } else {
+      appRouter.go(PagePaths.splash);
+    }
   }
 
   void setDeviceOrientation(Axis? axis) {

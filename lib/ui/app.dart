@@ -1,9 +1,7 @@
 import 'dart:io';
 import 'package:flutter_quick_start/models/counter.dart';
-import 'package:flutter_quick_start/ui/page/splash_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_quick_start/constant/constant.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_quick_start/common_libs.dart';
 
 class App extends StatelessWidget {
@@ -23,24 +21,34 @@ class App extends StatelessWidget {
       systemNavigationBarIconBrightness: Brightness.dark,
     ));
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => Counter()),
-      ],
-      child: ScreenUtilInit(
+        providers: [
+          ChangeNotifierProvider(create: (context) => Counter()),
+        ],
+        child: /*ScreenUtilInit(
           designSize: const Size(360, 690),
           minTextAdapt: true,
           splitScreenMode: true,
           builder: (cxt, child) {
-            return MaterialApp(
-              title: Constant.app,
+            return MaterialApp.router(
               debugShowCheckedModeBanner: false,
-              theme: $styles.colors.toThemeData(),
+              theme: ThemeData(fontFamily: $styles.text.body.fontFamily),
               localizationsDelegates: context.localizationDelegates,
               supportedLocales: context.supportedLocales,
               locale: context.locale,
-              home: SplashScreen(seconds: 0),
+              routerDelegate: appRouter.routerDelegate,
+              routeInformationProvider: appRouter.routeInformationProvider,
+              routeInformationParser: appRouter.routeInformationParser,
             );
-          }),
-    );
+          }),*/
+            MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(fontFamily: $styles.text.body.fontFamily),
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
+          routerDelegate: appRouter.routerDelegate,
+          routeInformationProvider: appRouter.routeInformationProvider,
+          routeInformationParser: appRouter.routeInformationParser,
+        ));
   }
 }

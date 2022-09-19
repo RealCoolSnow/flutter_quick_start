@@ -1,38 +1,72 @@
-import 'package:flutter_quick_start/ui/page/about.dart';
-import 'package:flutter_quick_start/ui/page/hooks_demo.dart';
+import 'package:flutter_quick_start/common_libs.dart';
+import 'package:flutter_quick_start/ui/app_scaffold.dart';
+import 'package:flutter_quick_start/ui/page/about_page.dart';
+import 'package:flutter_quick_start/ui/page/home_page.dart';
+import 'package:flutter_quick_start/ui/page/hooks_page.dart';
+import 'package:flutter_quick_start/ui/page/intro_page.dart';
+import 'package:flutter_quick_start/ui/page/splash_page.dart';
 import 'package:flutter_quick_start/ui/webview/webview.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
-class AppRouter {
-  static const aboutPage = 'app://AboutPage';
-  static const hookPage = 'app://HookPage';
+class PagePaths {
+  static String splash = '/';
+  static String intro = '/welcome';
+  static String home = '/home';
+  static String about = '/about';
+  static String hooks = '/hooks';
+  static String webview(String url, String title) =>
+      '/webview/url=$url&title=$title';
+}
 
-  Widget _getPage(String path, Map<String, dynamic> params) {
-    if (path.startsWith('http')) {
-      return WebViewPage(
-          url: path, title: params['title'] == null ? "" : params['title']);
-    } else {
-      switch (path) {
-        case aboutPage:
-          return AboutPage();
-        case hookPage:
-          return HooksDemoPage();
-      }
-    }
-    return Container(
-      child: Center(child: Text('404')),
-    );
-  }
+final appRouter = GoRouter(
+  redirect: _handleRedirect,
+  navigatorBuilder: (_, __, child) => AppScaffold(child: child),
+  routes: [
+    AppRoute(
+        PagePaths.splash, (_) => SplashPage(seconds: 3)), // This will be hidden
+    AppRoute(PagePaths.intro, (_) => IntroPage()),
+    AppRoute(PagePaths.home, (_) => HomePage()),
+    AppRoute(PagePaths.about, (_) => AboutPage()),
+    AppRoute(PagePaths.hooks, (_) => HooksPage()),
+    AppRoute('/webview/:url', (s) {
+      return WebViewPage(url: s.params['url']!, title: s.params['title']!);
+    }),
+  ],
+);
 
-  AppRouter.push(BuildContext context, String path,
-      {Map<String, dynamic> params = const {}}) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return _getPage(path, params);
-    }));
+/// Custom GoRoute sub-class to make the router declaration easier to read
+class AppRoute extends GoRoute {
+  AppRoute(String path, Widget Function(GoRouterState s) builder,
+      {List<GoRoute> routes = const [], this.useFade = false})
+      : super(
+          path: path,
+          routes: routes,
+          pageBuilder: (context, state) {
+            final pageContent = Scaffold(
+              body: builder(state),
+              resizeToAvoidBottomInset: false,
+            );
+            if (useFade) {
+              return CustomTransitionPage(
+                key: state.pageKey,
+                child: pageContent,
+                transitionsBuilder:
+                    (context, animation, secondaryAnimation, child) {
+                  return FadeTransition(opacity: animation, child: child);
+                },
+              );
+            }
+            return CupertinoPage(child: pageContent);
+          },
+        );
+  final bool useFade;
+}
+
+String? _handleRedirect(GoRouterState state) {
+  // Prevent anyone from navigating away from `/` if app is starting up.
+  if (!appLogic.isBootstrapComplete && state.location != PagePaths.splash) {
+    return PagePaths.splash;
   }
-  AppRouter.redirect(BuildContext context, String path,
-      {Map<String, dynamic> params = const {}}) {
-    Navigator.pop(context);
-    AppRouter.push(context, path, params: params);
-  }
+  logUtil.d('Navigate to: ${state.location}');
+  return null; // do nothing
 }
