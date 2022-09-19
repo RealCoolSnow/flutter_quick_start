@@ -10,3 +10,4 @@ export 'package:flutter_quick_start/styles/styles.dart';
 export 'package:get_it/get_it.dart';
 export 'package:flutter_quick_start/util/log_util.dart';
 export 'package:flutter_quick_start/assets.dart';
+export 'package:flutter_quick_start/main.dart';

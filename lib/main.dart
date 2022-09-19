@@ -8,6 +8,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_quick_start/app_sentry.dart';
 import 'package:flutter_quick_start/logic/app_logic.dart';
+import 'package:flutter_quick_start/logic/settings_logic.dart';
 import 'package:flutter_quick_start/logic/user_logic.dart';
 import 'package:flutter_quick_start/ui/app.dart';
 import 'package:flutter_quick_start/common_libs.dart';
@@ -16,6 +17,7 @@ void main() async {
   Provider.debugCheckInvalidValueType = null;
   WidgetsFlutterBinding.ensureInitialized();
   registerSingletons();
+  await appLogic.bootstrap();
   await EasyLocalization.ensureInitialized();
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,
@@ -26,7 +28,10 @@ void main() async {
 void registerSingletons() {
   GetIt.I.registerLazySingleton<AppLogic>(() => AppLogic());
   GetIt.I.registerLazySingleton<UserLogic>(() => UserLogic());
+  // Settings
+  GetIt.I.registerLazySingleton<SettingsLogic>(() => SettingsLogic());
 }
 
 AppLogic get appLogic => GetIt.I.get<AppLogic>();
 UserLogic get userLogic => GetIt.I.get<UserLogic>();
+SettingsLogic get settingsLogic => GetIt.I.get<SettingsLogic>();

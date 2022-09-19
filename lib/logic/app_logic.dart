@@ -24,8 +24,8 @@ class AppLogic {
     //   await FlutterDisplayMode.setHighRefreshRate();
     // }
 
-    // // Settings
-    // await settingsLogic.load();
+    // Settings
+    await settingsLogic.load();
 
     // // Localizations
     // await localeLogic.load();
