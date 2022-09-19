@@ -14,8 +14,8 @@ class PagePaths {
   static String home = '/home';
   static String about = '/about';
   static String hooks = '/hooks';
-  static String webview(String url, String title) =>
-      '/webview/url=$url&title=$title';
+  static String webview(String url, {String title = ''}) =>
+      '/webview/$url?title=$title';
 }
 
 final appRouter = GoRouter(
@@ -29,7 +29,8 @@ final appRouter = GoRouter(
     AppRoute(PagePaths.about, (_) => AboutPage()),
     AppRoute(PagePaths.hooks, (_) => HooksPage()),
     AppRoute('/webview/:url', (s) {
-      return WebViewPage(url: s.params['url']!, title: s.params['title']!);
+      String title = s.queryParams['title'] ?? '';
+      return WebViewPage(url: s.params['url']!, title: title);
     }),
   ],
 );

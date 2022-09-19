@@ -141,9 +141,9 @@ class _Tab1State extends State<Tab1> {
 
   _showWebView() {
     final url = Uri.encodeComponent(
-        'https://github.com/RealCoolSnow/flutter_easy'); //Uri.encodeComponent('assets/test.html');
+        'https://github.com/RealCoolSnow/flutter_quick_start'); //Uri.encodeComponent('assets/test.html');
     const title = 'RealCoolSnow';
-    context.push(PagePaths.webview(url, title));
+    context.push(PagePaths.webview(url, title: title));
   }
 
   _permissionRequest() async {
