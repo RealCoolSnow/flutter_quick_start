@@ -5,11 +5,8 @@
  * @LastEditors: CoolSnow
  * @LastEditTime: 2020-09-17 19:05:39
  */
-import 'package:flutter/material.dart';
-import 'package:flutter_quick_start/app_locale.dart';
 import 'package:flutter_quick_start/constant/pref_key.dart';
 import 'package:flutter_quick_start/models/counter.dart';
-import 'package:flutter_quick_start/router.dart';
 import 'package:flutter_quick_start/service/http/http_util.dart';
 import 'package:flutter_quick_start/storage/Pref.dart';
 import 'package:flutter_quick_start/util/device_util.dart';
@@ -20,7 +17,7 @@ import 'package:flutter_quick_start/util/time_util.dart';
 import 'package:flutter_quick_start/util/toast_util.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_quick_start/common_libs.dart';
 
 class Tab1 extends StatefulWidget {
   _Tab1State createState() => _Tab1State();
@@ -58,9 +55,10 @@ class _Tab1State extends State<Tab1> {
                         : AppLocaleSupported.enUS);
               },
               child: Consumer<Counter>(
-                builder: (context, counter, child) => Text(AppLocale.t(
-                    'switch_language',
-                    args: [AppLocale.currentLocale.name])),
+                builder: (context, counter, child) => Text(
+                    AppLocale.t('switch_language',
+                        args: [AppLocale.currentLocale.name]),
+                    style: $styles.text.bodySmall),
               ),
             )),
         Container(
