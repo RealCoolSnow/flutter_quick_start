@@ -3,6 +3,7 @@ import 'package:flutter_quick_start/models/counter.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_quick_start/constant/constant.dart';
 import 'package:flutter_quick_start/common_libs.dart';
+import 'package:flutter_quick_start/ui/app_scaffold.dart';
 
 class App extends StatelessWidget {
   App() {
@@ -49,6 +50,9 @@ class App extends StatelessWidget {
           routerDelegate: appRouter.routerDelegate,
           routeInformationProvider: appRouter.routeInformationProvider,
           routeInformationParser: appRouter.routeInformationParser,
+          builder: (BuildContext context, Widget? child) {
+            return AppScaffold(child: child!);
+          },
         ));
   }
 }

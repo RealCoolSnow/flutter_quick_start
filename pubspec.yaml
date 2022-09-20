@@ -60,7 +60,7 @@ dependencies:
   # https://pub.flutter-io.cn/packages/get_it
   get_it_mixin: ^3.1.4
   # https://pub.flutter-io.cn/packages/go_router
-  go_router: ^4.5.0
+  go_router: ^5.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

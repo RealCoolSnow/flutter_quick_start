@@ -20,7 +20,6 @@ class PagePaths {
 
 final appRouter = GoRouter(
   redirect: _handleRedirect,
-  navigatorBuilder: (_, __, child) => AppScaffold(child: child),
   routes: [
     AppRoute(
         PagePaths.splash, (_) => SplashPage(seconds: 3)), // This will be hidden
@@ -63,7 +62,7 @@ class AppRoute extends GoRoute {
   final bool useFade;
 }
 
-String? _handleRedirect(GoRouterState state) {
+String? _handleRedirect(BuildContext context, GoRouterState state) {
   // Prevent anyone from navigating away from `/` if app is starting up.
   if (!appLogic.isBootstrapComplete && state.location != PagePaths.splash) {
     return PagePaths.splash;
