@@ -1,9 +1,6 @@
 import 'dart:core';
 import 'dart:async';
-import 'package:flutter_quick_start/assets.dart';
 import 'package:flutter_quick_start/common_libs.dart';
-import 'package:flutter_quick_start/ui/page/home_page.dart';
-import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
   final int seconds;
@@ -13,16 +10,15 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-  var container = HomePage();
-  bool showAd = true;
-
+  late final showAd = ValueNotifier<bool>(true)
+    ..addListener(() {
+      appRouter.go(PagePaths.home);
+    });
   @override
   void initState() {
     super.initState();
     if (widget.seconds <= 0) {
-      setState(() {
-        showAd = false;
-      });
+      showAd.value = false;
     }
   }
 
@@ -30,89 +26,81 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        Offstage(
-          child: Container(
-            color: Colors.white,
-            child: Stack(
-              children: <Widget>[
-                Align(
-                  alignment: Alignment(0.0, 0.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      CircleAvatar(
-                        radius: 120,
-                        backgroundColor: Colors.white,
-                        backgroundImage: AssetImage(ImageFiles.splash),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 20.0),
-                        child: Text(
-                          'Nice to meet you.',
-                          style: TextStyle(fontSize: 15.0, color: Colors.black),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                SafeArea(
-                    child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        Container(
+          color: Colors.white,
+          child: Stack(
+            children: <Widget>[
+              Align(
+                alignment: Alignment(0.0, 0.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Align(
-                      alignment: Alignment(1.0, 0.0),
-                      child: Container(
-                        margin: const EdgeInsets.only(right: 30.0, top: 20.0),
-                        padding: const EdgeInsets.only(
-                            left: 10.0, right: 10.0, top: 2.0, bottom: 2.0),
-                        child: CountDownWidget(
-                            onCountDownFinishCallBack: (bool value) {
-                              if (value) {
-                                setState(() {
-                                  showAd = false;
-                                  appRouter.go(PagePaths.home);
-                                });
-                              }
-                            },
-                            seconds: widget.seconds),
-                        decoration: BoxDecoration(
-                            color: Color(0xffEDEDED),
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(10.0))),
-                      ),
+                    CircleAvatar(
+                      radius: 120,
+                      backgroundColor: Colors.white,
+                      backgroundImage: AssetImage(ImageFiles.splash),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 40.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Image.asset(
-                            ImageFiles.avatar,
-                            width: 50.0,
-                            height: 50.0,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 10.0),
-                            child: Text(
-                              'Hello',
-                              style: TextStyle(
-                                  color: Colors.green,
-                                  fontSize: 30.0,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          )
-                        ],
+                      padding: const EdgeInsets.only(top: 20.0),
+                      child: Text(
+                        'Nice to meet you.',
+                        style: TextStyle(fontSize: 15.0, color: Colors.black),
                       ),
                     )
                   ],
-                ))
-              ],
-            ),
-            // width: ScreenUtil().screenWidth,
-            // height: ScreenUtil().screenHeight,
+                ),
+              ),
+              SafeArea(
+                  child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Align(
+                    alignment: Alignment(1.0, 0.0),
+                    child: Container(
+                      margin: const EdgeInsets.only(right: 30.0, top: 20.0),
+                      padding: const EdgeInsets.only(
+                          left: 10.0, right: 10.0, top: 2.0, bottom: 2.0),
+                      child: CountDownWidget(
+                          onCountDownFinishCallBack: (bool value) {
+                            showAd.value = false;
+                          },
+                          seconds: widget.seconds),
+                      decoration: BoxDecoration(
+                          color: Color(0xffEDEDED),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(10.0))),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 40.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Image.asset(
+                          ImageFiles.avatar,
+                          width: 50.0,
+                          height: 50.0,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10.0),
+                          child: Text(
+                            'Hello',
+                            style: TextStyle(
+                                color: Colors.green,
+                                fontSize: 30.0,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ))
+            ],
           ),
-          offstage: !showAd,
-        )
+          // width: ScreenUtil().screenWidth,
+          // height: ScreenUtil().screenHeight,
+        ),
       ],
     );
   }

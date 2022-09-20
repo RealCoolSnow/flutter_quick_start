@@ -43,12 +43,13 @@ class AppLogic {
     isBootstrapComplete = true;
 
     // // Load initial view (replace empty initial view which is covered by a native splash screen)
-    bool showIntro = settingsLogic.hasCompletedOnboarding.value == false;
-    if (showIntro) {
-      appRouter.go(PagePaths.intro);
-    } else {
-      appRouter.go(PagePaths.splash);
-    }
+    // bool showIntro = settingsLogic.hasCompletedOnboarding.value == false;
+    // if (showIntro) {
+    //   appRouter.go(PagePaths.intro);
+    // } else {
+    //   appRouter.go(PagePaths.splash);
+    // }
+    appRouter.go(PagePaths.splash);
   }
 
   void setDeviceOrientation(Axis? axis) {

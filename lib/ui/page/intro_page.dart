@@ -9,7 +9,6 @@ class _IntroPageState extends State<IntroPage> {
   @override
   void initState() {
     super.initState();
-    appRouter.go(PagePaths.home);
     settingsLogic.hasCompletedOnboarding.value = true;
   }
 
