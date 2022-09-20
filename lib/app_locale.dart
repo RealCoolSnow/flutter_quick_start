@@ -17,6 +17,7 @@ class AppLocale {
         supportedLocales: supportedLocales,
         path: path,
         fallbackLocale: supportedLocales[0],
+        startLocale: supportedLocales[0],
         child: appMain);
   }
 
