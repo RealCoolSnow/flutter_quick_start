@@ -48,16 +48,16 @@ class _Tab1State extends State<Tab1> {
             margin: const EdgeInsets.only(top: 10.0),
             child: ElevatedButton(
               onPressed: () {
-                AppLocale.switchLocale(
+                $locale.switchLocale(
                     context,
-                    AppLocale.currentLocale == AppLocaleSupported.enUS
+                    $locale.currentLocale == AppLocaleSupported.enUS
                         ? AppLocaleSupported.zhCN
                         : AppLocaleSupported.enUS);
               },
               child: Consumer<Counter>(
                 builder: (context, counter, child) => Text(
-                    AppLocale.t('switch_language',
-                        args: [AppLocale.currentLocale.name]),
+                    $locale.t('switch_language',
+                        args: [$locale.currentLocale.name]),
                     style: $styles.text.bodySmall),
               ),
             )),
@@ -74,7 +74,7 @@ class _Tab1State extends State<Tab1> {
         Container(
             margin: const EdgeInsets.only(top: 10.0),
             child: ElevatedButton(
-                onPressed: _showLoading, child: Text(AppLocale.t('loading')))),
+                onPressed: _showLoading, child: Text($locale.t('loading')))),
         Container(
             margin: const EdgeInsets.only(top: 10.0),
             child: ElevatedButton(

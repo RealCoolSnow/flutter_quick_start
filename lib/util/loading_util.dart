@@ -19,7 +19,7 @@ class LoadingUtil {
   static show(
     BuildContext context,
   ) {
-    EasyLoading.show(status: AppLocale.t('loading'));
+    EasyLoading.show(status: $locale.t('loading'));
   }
 
   static showMessage(String msg) {

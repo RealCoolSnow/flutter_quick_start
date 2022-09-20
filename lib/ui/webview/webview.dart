@@ -190,11 +190,11 @@ class WebViewMenu extends StatelessWidget {
           itemBuilder: (BuildContext context) => <PopupMenuItem<MenuOptions>>[
             PopupMenuItem<MenuOptions>(
               value: MenuOptions.refresh,
-              child: Text(AppLocale.t('refresh')),
+              child: Text($locale.t('refresh')),
             ),
             PopupMenuItem<MenuOptions>(
               value: MenuOptions.copyLink,
-              child: Text(AppLocale.t('copy_link')),
+              child: Text($locale.t('copy_link')),
             ),
           ],
         );
@@ -209,6 +209,6 @@ class WebViewMenu extends StatelessWidget {
   void _onCopyLink(WebViewController controller, BuildContext context) async {
     String url = (await controller.currentUrl())!;
     await ClipboardUtil.copy(url);
-    ToastUtil.show(context, AppLocale.t('copied'));
+    ToastUtil.show(context, $locale.t('copied'));
   }
 }

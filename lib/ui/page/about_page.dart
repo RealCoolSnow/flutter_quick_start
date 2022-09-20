@@ -11,7 +11,7 @@ class _AboutPageState extends State<AboutPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
-          title: new Text(AppLocale.t('about')),
+          title: new Text($locale.t('about')),
         ),
         body: Container(
           alignment: Alignment.topCenter,

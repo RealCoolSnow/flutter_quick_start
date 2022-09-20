@@ -3,14 +3,16 @@ import 'package:flutter/material.dart';
 
 enum AppLocaleSupported { enUS, zhCN }
 
-const enUS_l = Locale('en', 'US');
 const zhCN_1 = Locale('zh', 'CN');
+const enUS_l = Locale('en', 'US');
+
+final $locale = AppLocale();
 
 class AppLocale {
   static const path = 'assets/locale';
-  static const supportedLocales = [enUS_l, zhCN_1];
-  static AppLocaleSupported currentLocale = AppLocaleSupported.enUS;
-  static Widget wrapApp(Widget appMain) {
+  static const supportedLocales = [zhCN_1, enUS_l];
+  AppLocaleSupported currentLocale = AppLocaleSupported.zhCN;
+  Widget wrapApp(Widget appMain) {
     return EasyLocalization(
         supportedLocales: supportedLocales,
         path: path,
@@ -18,7 +20,7 @@ class AppLocale {
         child: appMain);
   }
 
-  static void switchLocale(BuildContext context, AppLocaleSupported locale) {
+  void switchLocale(BuildContext context, AppLocaleSupported locale) {
     // logUtil.d('switchLocale: ' + locale.toString());
     switch (locale) {
       case AppLocaleSupported.enUS:
@@ -32,10 +34,10 @@ class AppLocale {
   }
 
   ///
-  /// AppLocale.t('name')
-  /// AppLocale.t('name', args: ['Dart'])
-  /// AppLocale.t('name', namedArgs: {'lang': 'Dart'})
-  static String t(
+  /// $locale.t('name')
+  /// $locale.t('name', args: ['Dart'])
+  /// $locale.t('name', namedArgs: {'lang': 'Dart'})
+  String t(
     String name, {
     List<String>? args,
     Map<String, String>? namedArgs,

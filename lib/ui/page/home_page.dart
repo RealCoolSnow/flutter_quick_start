@@ -61,11 +61,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final List<BottomNavigationBarItem> bottomTabs = [
       BottomNavigationBarItem(
-          icon: getTabIcon(0), label: AppLocale.t(tabNames[0])),
+          icon: getTabIcon(0), label: $locale.t(tabNames[0])),
       BottomNavigationBarItem(
-          icon: getTabIcon(1), label: AppLocale.t(tabNames[1])),
+          icon: getTabIcon(1), label: $locale.t(tabNames[1])),
       BottomNavigationBarItem(
-          icon: getTabIcon(2), label: AppLocale.t(tabNames[2])),
+          icon: getTabIcon(2), label: $locale.t(tabNames[2])),
     ];
     return WillPopScope(
       child: Scaffold(
@@ -107,7 +107,7 @@ class _HomePageState extends State<HomePage> {
 
   AppBar _buildAppBar() {
     return AppBar(
-      title: Text(AppLocale.t('app_name')),
+      title: Text($locale.t('app_name')),
       actions: <Widget>[],
       // bottom: _buildTabBar(),
     );

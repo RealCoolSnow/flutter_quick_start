@@ -15,7 +15,7 @@ class AppSentry {
       }
     };
     runZonedGuarded<Future<Null>>(() async {
-      runApp(AppLocale.wrapApp(appMain));
+      runApp($locale.wrapApp(appMain));
     }, (error, stackTrace) async {
       _reportError(error, stackTrace);
     });
