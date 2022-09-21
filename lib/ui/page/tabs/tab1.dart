@@ -6,7 +6,7 @@
  * @LastEditTime: 2020-09-17 19:05:39
  */
 import 'package:flutter_quick_start/constant/pref_key.dart';
-import 'package:flutter_quick_start/models/counter.dart';
+import 'package:flutter_quick_start/logic/provider/counter.dart';
 import 'package:flutter_quick_start/service/http/http_util.dart';
 import 'package:flutter_quick_start/storage/Pref.dart';
 import 'package:flutter_quick_start/util/device_util.dart';

@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:flutter_quick_start/models/counter.dart';
+import 'package:flutter_quick_start/logic/provider/counter.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_quick_start/constant/constant.dart';
 import 'package:flutter_quick_start/common_libs.dart';

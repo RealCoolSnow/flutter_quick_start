@@ -61,6 +61,8 @@ dependencies:
   get_it_mixin: ^3.1.4
   # https://pub.flutter-io.cn/packages/go_router
   go_router: ^5.0.0
+  # https://pub.flutter-io.cn/packages/json_annotation
+  json_annotation: ^4.7.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -68,6 +70,9 @@ dev_dependencies:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
   flutter_lints: ^2.0.0
+  build_runner: ^2.0.0
+  # https://pub.flutter-io.cn/packages/json_serializable
+  json_serializable: ^6.4.0
 # The following section is specific to Flutter.
 flutter:
 
