@@ -2,7 +2,6 @@
 
 import 'dart:ui';
 import 'package:flutter_quick_start/common_libs.dart';
-import 'package:flutter_quick_start/styles/colors.dart';
 export 'colors.dart';
 
 final $styles = AppStyle();
@@ -42,10 +41,6 @@ class _Text {
     'zh': TextStyle(fontFamily: 'MaShanZheng'),
   };
 
-  final Map<String, TextStyle> _wonderTitleFonts = {
-    'en': TextStyle(fontFamily: 'Yeseva'),
-  };
-
   final Map<String, TextStyle> _contentFonts = {
     'en': TextStyle(fontFamily: 'Raleway', fontFeatures: const [
       FontFeature.enable('dlig'),
@@ -68,15 +63,11 @@ class _Text {
   }
 
   TextStyle get titleFont => _getFontForLocale(_titleFonts);
-  TextStyle get quoteFont => _getFontForLocale(_quoteFonts);
-  TextStyle get wonderTitleFont => _getFontForLocale(_wonderTitleFonts);
   TextStyle get contentFont => _getFontForLocale(_contentFonts);
-  TextStyle get monoTitleFont => _getFontForLocale(_monoTitleFonts);
 
-  late final TextStyle dropCase = copy(quoteFont, sizePx: 56, heightPx: 20);
-
-  late final TextStyle wonderTitle =
-      copy(wonderTitleFont, sizePx: 64, heightPx: 56);
+  late final TextStyle large = copy(titleFont, sizePx: 32, heightPx: 20);
+  late final TextStyle mediumBold =
+      copy(titleFont, sizePx: 24, heightPx: 20, weight: FontWeight.w600);
 
   late final TextStyle h1 = copy(titleFont, sizePx: 64, heightPx: 62);
   late final TextStyle h2 = copy(titleFont, sizePx: 32, heightPx: 46);
@@ -85,33 +76,12 @@ class _Text {
   late final TextStyle h4 = copy(contentFont,
       sizePx: 14, heightPx: 23, spacingPc: 5, weight: FontWeight.w600);
 
-  late final TextStyle title1 =
-      copy(titleFont, sizePx: 16, heightPx: 26, spacingPc: 5);
-  late final TextStyle title2 = copy(titleFont, sizePx: 14, heightPx: 16.38);
-
   late final TextStyle body = copy(contentFont, sizePx: 16, heightPx: 27);
   late final TextStyle bodyBold =
       copy(contentFont, sizePx: 16, heightPx: 26, weight: FontWeight.w600);
   late final TextStyle bodySmall = copy(contentFont, sizePx: 14, heightPx: 23);
   late final TextStyle bodySmallBold =
       copy(contentFont, sizePx: 14, heightPx: 23, weight: FontWeight.w600);
-
-  late final TextStyle quote1 = copy(quoteFont,
-      sizePx: 32, heightPx: 40, weight: FontWeight.w600, spacingPc: -3);
-  late final TextStyle quote2 =
-      copy(quoteFont, sizePx: 21, heightPx: 32, weight: FontWeight.w400);
-  late final TextStyle quote2Sub =
-      copy(body, sizePx: 16, heightPx: 40, weight: FontWeight.w400);
-
-  late final TextStyle caption =
-      copy(contentFont, sizePx: 12, heightPx: 18, weight: FontWeight.w500)
-          .copyWith(fontStyle: FontStyle.italic);
-
-  late final TextStyle callout =
-      copy(contentFont, sizePx: 16, heightPx: 26, weight: FontWeight.w600)
-          .copyWith(fontStyle: FontStyle.italic);
-  late final TextStyle btn =
-      copy(titleFont, sizePx: 12, weight: FontWeight.w600, heightPx: 13.2);
 
   TextStyle copy(TextStyle style,
       {required double sizePx,
@@ -151,7 +121,6 @@ class _Insets {
   late final double lg = 32;
   late final double xl = 48;
   late final double xxl = 56;
-  late final double offset = 80;
 }
 
 @immutable
