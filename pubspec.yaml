@@ -84,14 +84,6 @@ flutter:
     - assets/test.html
 
   fonts:
-      - family: Cinzel
-        fonts:
-          - asset: assets/fonts/CinzelDecorative-Regular.ttf
-          - asset: assets/fonts/CinzelDecorative-Black.ttf
-          - asset: assets/fonts/CinzelDecorative-Bold.ttf
-      - family: Yeseva
-        fonts:
-          - asset: assets/fonts/YesevaOne-Regular.ttf
       - family: Tenor
         fonts:
           - asset: assets/fonts/TenorSans-Regular.ttf
@@ -106,9 +98,3 @@ flutter:
             weight: 700
           - asset: assets/fonts/Raleway-ExtraBold.ttf
             weight: 800
-      - family: MaShanZheng
-        fonts:
-          - asset: assets/fonts/MaShanZheng-Regular.ttf
-      - family: B612Mono
-        fonts:
-          - asset: assets/fonts/B612Mono-Regular.ttf

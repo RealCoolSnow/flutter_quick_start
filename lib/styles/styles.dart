@@ -12,15 +12,15 @@ class AppStyle {
   final AppColors colors = AppColors();
 
   /// Rounded edge corner radii
-  late final _Corners corners = _Corners();
+  final _Corners corners = _Corners();
 
-  late final _Shadows shadows = _Shadows();
+  final _Shadows shadows = _Shadows();
 
   /// Padding and margin values
-  late final _Insets insets = _Insets();
+  final _Insets insets = _Insets();
 
   /// Text styles
-  late final _Text text = _Text();
+  final _Text text = _Text();
 
   /// Animation Durations
   final _Times times = _Times();
@@ -30,15 +30,6 @@ class AppStyle {
 class _Text {
   final Map<String, TextStyle> _titleFonts = {
     'en': TextStyle(fontFamily: 'Tenor'),
-  };
-
-  final Map<String, TextStyle> _monoTitleFonts = {
-    'en': TextStyle(fontFamily: 'B612Mono'),
-  };
-
-  final Map<String, TextStyle> _quoteFonts = {
-    'en': TextStyle(fontFamily: 'Cinzel'),
-    'zh': TextStyle(fontFamily: 'MaShanZheng'),
   };
 
   final Map<String, TextStyle> _contentFonts = {
@@ -107,20 +98,20 @@ class _Times {
 
 @immutable
 class _Corners {
-  late final double sm = 4;
-  late final double md = 8;
-  late final double lg = 32;
+  final double sm = 4;
+  final double md = 8;
+  final double lg = 32;
 }
 
 @immutable
 class _Insets {
-  late final double xxs = 4;
-  late final double xs = 8;
-  late final double sm = 16;
-  late final double md = 24;
-  late final double lg = 32;
-  late final double xl = 48;
-  late final double xxl = 56;
+  final double xxs = 4;
+  final double xs = 8;
+  final double sm = 16;
+  final double md = 24;
+  final double lg = 32;
+  final double xl = 48;
+  final double xxl = 56;
 }
 
 @immutable
