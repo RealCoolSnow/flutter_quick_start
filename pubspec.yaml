@@ -87,14 +87,3 @@ flutter:
       - family: Tenor
         fonts:
           - asset: assets/fonts/TenorSans-Regular.ttf
-      - family: Raleway
-        fonts:
-          - asset: assets/fonts/Raleway-Regular.ttf
-          - asset: assets/fonts/Raleway-Italic.ttf
-            style: italic
-          - asset: assets/fonts/Raleway-Medium.ttf
-            weight: 500
-          - asset: assets/fonts/Raleway-Bold.ttf
-            weight: 700
-          - asset: assets/fonts/Raleway-ExtraBold.ttf
-            weight: 800

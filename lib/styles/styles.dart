@@ -32,13 +32,6 @@ class _Text {
     'en': TextStyle(fontFamily: 'Tenor'),
   };
 
-  final Map<String, TextStyle> _contentFonts = {
-    'en': TextStyle(fontFamily: 'Raleway', fontFeatures: const [
-      FontFeature.enable('dlig'),
-      FontFeature.enable('kern'),
-    ]),
-  };
-
   TextStyle _getFontForLocale(Map<String, TextStyle> fonts) {
     // if (localeLogic.isLoaded) {
     //   return fonts.entries
@@ -54,7 +47,7 @@ class _Text {
   }
 
   TextStyle get titleFont => _getFontForLocale(_titleFonts);
-  TextStyle get contentFont => _getFontForLocale(_contentFonts);
+  TextStyle get contentFont => TextStyle();
 
   late final TextStyle large = copy(titleFont, sizePx: 32, heightPx: 20);
   late final TextStyle mediumBold =
