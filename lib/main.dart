@@ -10,6 +10,7 @@ import 'package:flutter_quick_start/app_sentry.dart';
 import 'package:flutter_quick_start/logic/app_logic.dart';
 import 'package:flutter_quick_start/logic/settings_logic.dart';
 import 'package:flutter_quick_start/logic/user_logic.dart';
+import 'package:flutter_quick_start/service/api/demo_api.dart';
 import 'package:flutter_quick_start/ui/app.dart';
 import 'package:flutter_quick_start/common_libs.dart';
 
@@ -30,8 +31,10 @@ void registerSingletons() {
   GetIt.I.registerLazySingleton<UserLogic>(() => UserLogic());
   // Settings
   GetIt.I.registerLazySingleton<SettingsLogic>(() => SettingsLogic());
+  GetIt.I.registerLazySingleton<DemoApi>(() => DemoApi());
 }
 
 AppLogic get appLogic => GetIt.I.get<AppLogic>();
 UserLogic get userLogic => GetIt.I.get<UserLogic>();
 SettingsLogic get settingsLogic => GetIt.I.get<SettingsLogic>();
+DemoApi get demoApi => GetIt.I.get<DemoApi>();

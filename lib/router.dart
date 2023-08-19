@@ -1,5 +1,4 @@
 import 'package:flutter_quick_start/common_libs.dart';
-import 'package:flutter_quick_start/ui/app_scaffold.dart';
 import 'package:flutter_quick_start/ui/page/about_page.dart';
 import 'package:flutter_quick_start/ui/page/home_page.dart';
 import 'package:flutter_quick_start/ui/page/hooks_page.dart';

@@ -1,5 +1,3 @@
-import 'package:flutter_quick_start/constant/constant.dart';
-
 /// Loads bitmap assets into memory that may be required later
 class AppBitmaps {
   static Future<void> init() async {}

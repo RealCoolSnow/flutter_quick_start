@@ -6,6 +6,7 @@
  * @LastEditTime: 2020-09-10 14:25:03
  */
 import 'package:dio/dio.dart';
+import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:flutter_quick_start/constant/constant.dart';
 import 'package:flutter_quick_start/service/http/util/full_url.dart';
 import 'package:flutter_quick_start/service/http/http_config.dart';
@@ -51,11 +52,11 @@ class HttpUtil {
     }
     addInterceptor(HeaderInterceptor());
     addInterceptor(ErrorInterceptor());
+    addInterceptor(DioCacheInterceptor(options: cacheOptions));
   }
+  
   addInterceptor(Interceptor interceptor) {
-    if (null != _dio) {
-      _dio.interceptors.add(interceptor);
-    }
+    _dio.interceptors.add(interceptor);
   }
 
   /// get
