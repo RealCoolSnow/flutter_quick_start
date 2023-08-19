@@ -13,9 +13,11 @@ import 'package:flutter_quick_start/logic/user_logic.dart';
 import 'package:flutter_quick_start/service/api/demo_api.dart';
 import 'package:flutter_quick_start/ui/app.dart';
 import 'package:flutter_quick_start/common_libs.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 void main() async {
   Provider.debugCheckInvalidValueType = null;
+  setPathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
   registerSingletons();
   await appLogic.bootstrap();

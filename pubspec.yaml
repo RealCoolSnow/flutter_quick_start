@@ -60,13 +60,15 @@ dependencies:
   # https://pub.flutter-io.cn/packages/get_it
   get_it_mixin: ^3.1.4
   # https://pub.flutter-io.cn/packages/go_router
-  go_router: ^5.0.0
+  go_router: ^6.0.1
   # https://pub.flutter-io.cn/packages/json_annotation
   json_annotation: ^4.7.0
   # https://pub.flutter-io.cn/packages/dio_cache_interceptor
   dio_cache_interceptor: ^3.3.1
   # https://pub.flutter-io.cn/packages/event_bus
   event_bus: ^2.0.0
+  # https://pub.dev/packages/url_strategy
+  url_strategy: ^0.2.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
