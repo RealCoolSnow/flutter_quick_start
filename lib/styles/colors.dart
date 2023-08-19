@@ -12,6 +12,7 @@ class AppColors {
   final Color greyMedium = const Color(0xFF9D9995);
   final Color white = Colors.white;
   final Color black = const Color(0xFF1E1B18);
+  final Color transparent = const Color(0x00000000);
 
   final bool isDark = false;
 
